@@ -18,8 +18,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
+import { FaMandalorian } from "react-icons/fa";
 
-const drawerWidth = 240;
+const drawerWidth = 210;
 
 function Header(props) {
     const { window } = props;
@@ -31,7 +32,10 @@ function Header(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar >
+                <Typography variant="h6" noWrap> SmartCare </Typography>
+                <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
+            </Toolbar>
             <Divider />
             <List>
                 <ListItem disablePadding>
@@ -83,7 +87,9 @@ function Header(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>       
+
+
+                <Toolbar style={{backgroundColor:'#001D6E'}}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -93,7 +99,7 @@ function Header(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component='div' sx={{width:'90%', display:'flex', justifyContent:'center'}}>
+                    <Typography variant="h6"  noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
                         Hospital Management System
                     </Typography>
                 </Toolbar>

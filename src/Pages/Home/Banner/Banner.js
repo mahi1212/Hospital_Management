@@ -4,9 +4,17 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const Banner = () => {
   return (
-    <div >
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', margin:'0 0 0 12rem'}}>
-        <Paper variant="outlined" sx={{ padding: '1rem' }}>
+    <Box sx={{ margin: '0 1rem' }}>
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '1rem',
+        margin: {sm: '0 auto', md: '0 0 0 10rem'},
+        flexWrap: 'wrap',
+        padding: '0 0.5rem'
+      }}>
+        <Paper variant="outlined" sx={{ padding: '1rem', }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <div>
               <HomeIcon sx={{ fontSize: '1.5rem' }} />
@@ -17,7 +25,7 @@ const Banner = () => {
             </div>
           </Box>
           <Typography>
-            3 doctors joined this week
+            3 doctors joined today
           </Typography>
         </Paper>
         <Paper variant="outlined" sx={{ padding: '1rem' }}>
@@ -77,7 +85,8 @@ const Banner = () => {
           </Typography>
         </Paper>
       </Box>
-    </div>
+
+    </Box>
   )
 }
 
