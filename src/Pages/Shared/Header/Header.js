@@ -18,7 +18,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
-import { FaMandalorian } from "react-icons/fa";
+import { FaMandalorian, FaRunning } from "react-icons/fa";
+
 
 const drawerWidth = 210;
 
@@ -31,48 +32,62 @@ function Header(props) {
     };
 
     const drawer = (
-        <div>
-            <Toolbar >
+        <Box >
+            <Toolbar style={{ backgroundColor: '#11468F', color: '#fff' }}>
                 <Typography variant="h6" noWrap> SmartCare </Typography>
                 <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
             </Toolbar>
             <Divider />
             <List>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <NavLink to="/home" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                <NavLink to="/home" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <HomeIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                            </ListItemIcon>
                             <ListItemText primary="Overview" />
-                        </NavLink>
-                    </ListItemButton>
-                </ListItem>
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
+
                 <Divider />
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <MedicationIcon />
-                        </ListItemIcon>
-                        <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <MedicationIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                            </ListItemIcon>
                             <ListItemText primary="Doctors" />
-                        </NavLink>
-                    </ListItemButton>
-                </ListItem>
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
+
                 <Divider />
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <HotelIcon />
-                        </ListItemIcon>
-                        <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <HotelIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                            </ListItemIcon>
                             <ListItemText primary="Patients" />
-                        </NavLink>
-                    </ListItemButton>
-                </ListItem>
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
+                <Divider />
+                <NavLink to="/stuffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <FaRunning style={{color:'#000', fontSize:'1.5rem'}} />
+                            </ListItemIcon>
+                            <ListItemText primary="Stuffs" />
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
+
             </List>
             <Divider />
-        </div>
+        </Box>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -89,7 +104,7 @@ function Header(props) {
             >
 
 
-                <Toolbar style={{backgroundColor:'#001D6E'}}>
+                <Toolbar style={{ backgroundColor: '#001D6E' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -99,7 +114,7 @@ function Header(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6"  noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
+                    <Typography variant="h6" noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
                         Hospital Management System
                     </Typography>
                 </Toolbar>
@@ -141,33 +156,7 @@ function Header(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                {/* <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-                    sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-                    eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-                    neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-                    tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-                    sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-                    tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-                    gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-                    et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-                    tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-                    eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-                    posuere sollicitudin aliquam ultrices sagittis orci a.
-                </Typography> */}
+
             </Box>
         </Box>
     );
