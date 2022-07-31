@@ -43,7 +43,7 @@ function Header(props) {
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                <HomeIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                                <HomeIcon style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
                             <ListItemText primary="Overview" />
                         </ListItemButton>
@@ -55,7 +55,7 @@ function Header(props) {
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                <MedicationIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                                <MedicationIcon style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
                             <ListItemText primary="Doctors" />
                         </ListItemButton>
@@ -67,7 +67,7 @@ function Header(props) {
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                <HotelIcon style={{color:'#000', fontSize:'1.5rem'}}/>
+                                <HotelIcon style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
                             <ListItemText primary="Patients" />
                         </ListItemButton>
@@ -78,7 +78,7 @@ function Header(props) {
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                <FaRunning style={{color:'#000', fontSize:'1.5rem'}} />
+                                <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
                             <ListItemText primary="Stuffs" />
                         </ListItemButton>
@@ -114,7 +114,9 @@ function Header(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
+                    <Typography variant="h6"
+                        fontFamily={'Roboto'}
+                        noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
                         Hospital Management System
                     </Typography>
                 </Toolbar>
