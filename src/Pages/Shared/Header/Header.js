@@ -74,13 +74,13 @@ function Header(props) {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <NavLink to="/stuffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
                                 <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
-                            <ListItemText primary="Stuffs" />
+                            <ListItemText primary="Staffs" />
                         </ListItemButton>
                     </ListItem>
                 </NavLink>
