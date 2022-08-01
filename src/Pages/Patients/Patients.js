@@ -34,17 +34,16 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, "  ", 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Frozen yoghurt', "Dr. Mahinur", "01778287079", "02-08-22", "1:20 AM"),
+  createData('Ice cream sandwich', "Dr. Joy", "01778287079", "02-08-22", "1:20 AM"),
+  createData('Eclair', "Dr. Jubayel", "01778287079", "02-08-22", "1:20 AM"),
+  createData('Cupcake', "Dr. Olid", "01778287079", "02-08-22", "1:20 AM"),
+  createData('Gingerbread', "Dr. Mahin", "01778287079", "02-08-22", "1:20 AM"),
 ];
-
+// no need to save 
 export default function Patients() {
   return (
-
-    <TableContainer component={Paper}>
+    <TableContainer sx={{padding:'0 2rem'}}>
       <Table sx={{ minWidth: '700', margin:'0 auto' }} aria-label="customized table" className='patientTable'>
         <TableHead>
           <TableRow>
