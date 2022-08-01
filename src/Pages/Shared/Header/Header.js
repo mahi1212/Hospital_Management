@@ -19,6 +19,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning } from "react-icons/fa";
+import { Alert } from '@mui/material';
 
 
 const drawerWidth = 210;
@@ -50,7 +51,7 @@ function Header(props) {
                     </ListItem>
                 </NavLink>
 
-                <Divider />
+                {/* <Divider /> */}
                 <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -62,7 +63,7 @@ function Header(props) {
                     </ListItem>
                 </NavLink>
 
-                <Divider />
+                {/* <Divider /> */}
                 <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -73,18 +74,17 @@ function Header(props) {
                         </ListItemButton>
                     </ListItem>
                 </NavLink>
-                <Divider />
-                <NavLink to="/stuffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                {/* <Divider /> */}
+                <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
                                 <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
-                            <ListItemText primary="Stuffs" />
+                            <ListItemText primary="Staffs" />
                         </ListItemButton>
                     </ListItem>
                 </NavLink>
-
             </List>
             <Divider />
         </Box>
@@ -100,26 +100,25 @@ function Header(props) {
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                    backgroundColor: '#fff',
+                    
                 }}
             >
-
-
-                <Toolbar style={{ backgroundColor: '#001D6E' }}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                <IconButton
+                    // color="inherit"
+                    style={{ color: '#000', width: '100%' }}
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    sx={{ mr: 2, display: { sm: 'flex', md: 'none' }, justifyContent: 'flex-start' }}
+                >
+                    <MenuIcon style={{ marginLeft: '1rem' }} />
                     <Typography variant="h6"
                         fontFamily={'Roboto'}
                         noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
                         Hospital Management System
                     </Typography>
-                </Toolbar>
+                </IconButton>
             </AppBar>
             <Box
                 component="nav"
@@ -155,10 +154,11 @@ function Header(props) {
             </Box>
             <Box
                 component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ flexGrow: 1, p: 2, width: { sm: `calc(100% - ${drawerWidth})` } }}
             >
-                <Toolbar />
-
+                {/* <Toolbar /> */}
+                <Alert severity="info"
+                sx={{marginTop:{xs :'3rem', sm:'3rem',md:'0'}, display:'flex', justifyContent:'center'}}>Welcome — Mahinur Rahman!</Alert>
             </Box>
         </Box>
     );
