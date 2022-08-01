@@ -39,7 +39,7 @@ export default function Staff() {
   <TableContainer component={Paper} className="staffTable" textAlign='center'>
       <Table sx={{ minWidth: 550 }} aria-label="simple table">
         <TableHead>
-          <TableRow className='staffRow'>
+          <TableRow>
             <TableCell >Name</TableCell>
             <TableCell align="right">Staff ID</TableCell>
             <TableCell align="right">Contact</TableCell>
