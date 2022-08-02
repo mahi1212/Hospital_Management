@@ -9,9 +9,6 @@
 .staffTable{
     border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: 0px 5px 0px 5px #6c27a421;
-    width: 50%;
-    margin: auto;
-    align-items: center;
-
-text-align: center;}
+    box-shadow: 0px 5px 0px 5px #3c175b4c;
+    padding: 3px;
+    }
