@@ -18,7 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
-import { FaMandalorian, FaRunning } from "react-icons/fa";
+import { FaEdit, FaMandalorian, FaRunning } from "react-icons/fa";
 import { Alert } from '@mui/material';
 
 
@@ -82,6 +82,19 @@ function Header(props) {
                                 <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                             </ListItemIcon>
                             <ListItemText primary="Staffs" />
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
+                 {/* <Divider /> */}
+                <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                            <FaEdit style={{ color: '#000', fontSize: '1.5rem' }} />
+
+                                {/* < style={{ color: '#000', fontSize: '1.5rem' }} /> */}
+                            </ListItemIcon>
+                            <ListItemText primary="appointment" />
                         </ListItemButton>
                     </ListItem>
                 </NavLink>

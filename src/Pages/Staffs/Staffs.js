@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,  Slide } from '@mui/material';
-import './Staff.css'
 
 const drawerWidth = 250;
 function createData(name, staffID, contact, shiftingHour) {
@@ -39,8 +38,9 @@ export default function Staffs() {
   };
   return (
    
-  <TableContainer  component={Paper}  sx={{
-    width: { sm: `calc(97% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` }}}className="staffTable">
+  <TableContainer  component={Paper}  sx={{width: { sm: `calc(97% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` }}}
+  
+  style={{'border-radius': '4px', 'box-sizing': 'border-box','box-shadow': '0px 5px 0px 5px #3c175b4c','padding': '3px' }}>
       <Table sx={{minWidth: 500}}aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -64,7 +64,7 @@ export default function Staffs() {
               <TableCell align="center">{row.contact}</TableCell>
               <TableCell align="center">{row.shiftingHour}</TableCell>
               <TableCell align="center">
-                <Button className='paybtn'onClick={handleClickOpen}>Payment</Button>
+                <Button style={{ 'background-color': 'rgba(47, 35, 77, 0.822)',color: 'rgb(232, 238, 244)','border-radius': '4px'}}onClick={handleClickOpen}>Payment</Button>
                 <Dialog
         open={open}
         TransitionComponent={Transition}

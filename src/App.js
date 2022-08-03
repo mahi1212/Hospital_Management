@@ -11,6 +11,7 @@ import Patients from "./Pages/Patients/Patients";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import Staffs from "./Pages/Staffs/Staffs";
+import Appointment from "./Pages/Appointment/Appointment";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="doctors" element={<Doctors />} />
           <Route path="patients" element={<Patients />} />
           <Route path="staffs" element={<Staffs />} />
+          <Route path="appointment" element={<Appointment />} />
         </Routes>
         <Footer></Footer>
       </Router>
