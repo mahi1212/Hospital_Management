@@ -15,15 +15,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Home from '../Home/Home/Home';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning } from "react-icons/fa";
 import HotelIcon from '@mui/icons-material/Hotel';
 import HomeIcon from '@mui/icons-material/Home';
 import MedicationIcon from '@mui/icons-material/Medication';
-import Banner from '../Home/Banner/Banner';
-import DetailsChart from '../Home/DetailsChart/DetailsChart';
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Container } from '@mui/material';
 
 const drawerWidth = 240;
@@ -114,11 +111,11 @@ export default function NewHeader() {
                         boxSizing: 'border-box',
                     },
                 }}
+                // variant="temporary"
                 variant="persistent"
                 anchor="left"
                 open={open}
             >
-                {/* backgroundColor: '#11468F' */}
                 <DrawerHeader sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <Toolbar style={{ color: '#000' }}>
                         <Typography variant="h6" noWrap> SmartCare </Typography>
