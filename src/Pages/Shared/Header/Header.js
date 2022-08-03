@@ -21,6 +21,11 @@ import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning } from "react-icons/fa";
 import { Alert } from '@mui/material';
 
+    // Not using this header for now
+    // Not using this header for now
+    // Not using this header for now
+    // Not using this header for now
+    // Not using this header for now
 
 const drawerWidth = 210;
 
@@ -31,7 +36,6 @@ function Header(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
     const drawer = (
         <Box >
             <Toolbar style={{ backgroundColor: '#11468F', color: '#fff' }}>

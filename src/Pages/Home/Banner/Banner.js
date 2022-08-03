@@ -7,15 +7,14 @@ import { TbBed } from "react-icons/tb";
 
 const Banner = () => {
   return (
-    <Box sx={{ margin: '0 1rem' }}>
+    // sx={{ padding: '0 1rem' }}
+    <Box >
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         gap: '1rem',
-        margin: { sm: '0 auto', md: '0 0 0 10rem' },
         flexWrap: 'wrap',
-        padding: '0 0.5rem'
       }}>
         <Paper elevation={2} sx={{ padding: '1rem', width:'15rem' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>

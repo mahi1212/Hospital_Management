@@ -4,25 +4,25 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
-import Banner from "./Pages/Home/Banner/Banner";
 import Doctors from "./Pages/Doctors/Doctors";
 import Home from "./Pages/Home/Home/Home";
 import Patients from "./Pages/Patients/Patients";
 import Footer from "./Pages/Shared/Footer/Footer";
-import Header from "./Pages/Shared/Header/Header";
-import Staffs from "./Pages/Staffs/Staffs";
+import Staffs from "./Pages/Stuffs/Stuffs";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header></Header>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="doctors" element={<Doctors />} />
-          <Route path="patients" element={<Patients />} />
-          <Route path="staffs" element={<Staffs />} />
+          {/* NESTED ROUTING APPLIED */}
+          <Route path="/" element={<Dashboard />} >
+            <Route index element={<Home></Home>} />
+            <Route path="doctors" element={<Doctors />} />
+            <Route path="patients" element={<Patients />} />
+            <Route path="staffs" element={<Staffs />} />
+          </Route>
         </Routes>
         <Footer></Footer>
       </Router>

@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,  Slide } from '@mui/material';
-import './Staff.css'
+import './Stuff.css'
 function createData(name, staffID, contact, shiftingHour) {
   return { name, staffID, contact, shiftingHour};
 }
