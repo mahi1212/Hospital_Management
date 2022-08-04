@@ -14,6 +14,8 @@ const DetailsChart = () => {
             justifyContent: 'space-evenly',
             flexWrap: 'wrap',
             alignItems: 'center',
+            borderRadius: '0.5rem',
+            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
             marginTop: '2rem',
             paddingTop: '2rem',
             backgroundColor: '#fff'
