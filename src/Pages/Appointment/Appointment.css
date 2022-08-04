@@ -5,7 +5,16 @@
     overflow: hidden;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.appointment input, textarea,select{
+.datetime {
+  border: none;
+    padding: 10px  5px;
+    font-size: 20px;
+    width: 250px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px rgba(107, 95, 95, 0.779);
+}
+.appointment input,select{
     border: none;
     padding: 10px  5px;
     font-size: 20px;
