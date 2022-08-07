@@ -8,7 +8,8 @@ import Doctors from "./Pages/Doctors/Doctors";
 import Home from "./Pages/Home/Home/Home";
 import Patients from "./Pages/Patients/Patients";
 import Footer from "./Pages/Shared/Footer/Footer";
-import Staffs from "./Pages/Stuffs/Stuffs";
+import Staffs from "./Pages/Staffs/Staffs";
+import Appointment from "./Pages/Appointment/Appointment";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="doctors" element={<Doctors />} />
             <Route path="patients" element={<Patients />} />
             <Route path="staffs" element={<Staffs />} />
+            <Route path="appointment" element={<Appointment />} />
           </Route>
         </Routes>
         <Footer></Footer>

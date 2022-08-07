@@ -6,11 +6,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,  Slide } from '@mui/material';
-import './Stuff.css'
+import './Staff.css'
+
+const drawerWidth = 250;
 function createData(name, staffID, contact, shiftingHour) {
   return { name, staffID, contact, shiftingHour};
-}
+} 
 
 const rows = [
   createData('Frozen yoghurt', 159, 6.555555555550, 24, 4.0),
@@ -36,15 +39,17 @@ export default function Staffs() {
   };
   return (
    
-  <TableContainer component={Paper} className="staffTable" >
-      <Table sx={{minWidth: 550 ,}} aria-label="simple table">
+  <TableContainer  component={Paper}  sx={{width: { sm: `calc(97% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` }}}
+  
+  style={{'border-radius': '4px', 'box-sizing': 'border-box','box-shadow': '0px 5px 0px 5px #3c175b4c','padding': '3px' }}>
+      <Table sx={{minWidth: 500}}aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell >Name</TableCell>
-            <TableCell align="right">Staff ID</TableCell>
-            <TableCell align="right">Contact</TableCell>
-            <TableCell align="right">Shifting Hour(Day/Night)</TableCell>
-            <TableCell align="right">Payment option</TableCell>
+            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}>Name</TableCell>
+            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="right">Staff ID</TableCell>
+            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Contact</TableCell>
+            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Shifting Hour(Day/Night)</TableCell>
+            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Payment option</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,10 +62,10 @@ export default function Staffs() {
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.staffID}</TableCell>
-              <TableCell align="right">{row.contact}</TableCell>
-              <TableCell align="right">{row.shiftingHour}</TableCell>
-              <TableCell align="right">
-                <Button className='paybtn'onClick={handleClickOpen}>Payment</Button>
+              <TableCell align="center">{row.contact}</TableCell>
+              <TableCell align="center">{row.shiftingHour}</TableCell>
+              <TableCell align="center">
+                <Button style={{ 'background-color': 'rgba(47, 35, 77, 0.822)',color: 'rgb(232, 238, 244)','border-radius': '4px'}}onClick={handleClickOpen}>Payment</Button>
                 <Dialog
         open={open}
         TransitionComponent={Transition}
