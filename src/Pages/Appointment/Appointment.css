@@ -1,28 +1,23 @@
 .appointment{
     margin: 10px;
     box-sizing: border-box;
-    box-shadow: 0px 5px 5px 5px rgba(28, 26, 26, 0.215);
     overflow: hidden;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .datetime {
-  border: none;
-    padding: 10px  5px;
+    padding: 10px 5px;
     font-size: 20px;
-    width: 250px;
+    width: 260px;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 5px rgba(107, 95, 95, 0.779);
 }
 .appointment input,select{
-    border: none;
-    padding: 10px  5px;
+    border: 1px solid #ccc;
+    padding: 13px 5px;
     font-size: 20px;
-    margin-top: 5px;
-    width: 250px;
-    border-radius: 5px;
-    background: rgba(213, 209, 250, 0.169);
+    margin-top: 15px;
+    width: 260px;
+    margin-left: 4px;
+    border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 5px rgba(107, 95, 95, 0.779);
-
 }

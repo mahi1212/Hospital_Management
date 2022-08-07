@@ -7,13 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,  Slide } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from '@mui/material';
 import './Staff.css'
 
-const drawerWidth = 250;
+const drawerWidth = 0;
 function createData(name, staffID, contact, shiftingHour) {
-  return { name, staffID, contact, shiftingHour};
-} 
+  return { name, staffID, contact, shiftingHour };
+}
 
 const rows = [
   createData('Frozen yoghurt', 159, 6.555555555550, 24, 4.0),
@@ -38,18 +38,17 @@ export default function Staffs() {
     setOpen(false);
   };
   return (
-   
-  <TableContainer  component={Paper}  sx={{width: { sm: `calc(97% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` }}}
-  
-  style={{'border-radius': '4px', 'box-sizing': 'border-box','box-shadow': '0px 5px 0px 5px #3c175b4c','padding': '3px' }}>
-      <Table sx={{minWidth: 500}}aria-label="simple table">
+
+    <TableContainer component={Paper} sx={{ width: { sm: `calc(97% - ${drawerWidth}px)` }, ml: { sm: `${drawerWidth}px` } }}
+      style={{ 'border-radius': '4px', 'box-sizing': 'border-box', 'box-shadow': '0px 5px 0px 5px #3c175b4c', 'padding': '3px' }}>
+      <Table sx={{ minWidth: 500 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}>Name</TableCell>
-            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="right">Staff ID</TableCell>
-            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Contact</TableCell>
-            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Shifting Hour(Day/Night)</TableCell>
-            <TableCell sx={{fontSize: '1rem',fontFamily: 'Raleway',fontWeight: 600}}align="center">Payment option</TableCell>
+            <TableCell sx={{ fontSize: '1rem', fontFamily: 'Raleway', fontWeight: 600 }}>Name</TableCell>
+            <TableCell sx={{ fontSize: '1rem', fontFamily: 'Raleway', fontWeight: 600 }} align="right">Staff ID</TableCell>
+            <TableCell sx={{ fontSize: '1rem', fontFamily: 'Raleway', fontWeight: 600 }} align="center">Contact</TableCell>
+            <TableCell sx={{ fontSize: '1rem', fontFamily: 'Raleway', fontWeight: 600 }} align="center">Shifting Hour(Day/Night)</TableCell>
+            <TableCell sx={{ fontSize: '1rem', fontFamily: 'Raleway', fontWeight: 600 }} align="center">Payment option</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -65,32 +64,31 @@ export default function Staffs() {
               <TableCell align="center">{row.contact}</TableCell>
               <TableCell align="center">{row.shiftingHour}</TableCell>
               <TableCell align="center">
-                <Button style={{ 'background-color': 'rgba(47, 35, 77, 0.822)',color: 'rgb(232, 238, 244)','border-radius': '4px'}}onClick={handleClickOpen}>Payment</Button>
+                <Button style={{ 'background-color': 'rgba(47, 35, 77, 0.822)', color: 'rgb(232, 238, 244)', 'border-radius': '4px' }} onClick={handleClickOpen}>Payment</Button>
                 <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle>{"Payment service"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-          Do you want to clear the salary?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>No</Button>
-          <Button onClick={handleClose}>Yes</Button>
-        </DialogActions>
-      </Dialog>
-                </TableCell>
-
+                  open={open}
+                  TransitionComponent={Transition}
+                  keepMounted
+                  onClose={handleClose}
+                  aria-describedby="alert-dialog-slide-description"
+                >
+                  <DialogTitle>{"Payment service"}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                      Do you want to clear the salary?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>No</Button>
+                    <Button onClick={handleClose}>Yes</Button>
+                  </DialogActions>
+                </Dialog>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-  
+
   );
 }
