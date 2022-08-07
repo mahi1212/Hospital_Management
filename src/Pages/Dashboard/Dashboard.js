@@ -16,10 +16,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
-import { FaMandalorian, FaRunning } from "react-icons/fa";
-import HotelIcon from '@mui/icons-material/Hotel';
+import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
+import { AiOutlineFieldTime } from "react-icons/ai";
+import { TbBed } from "react-icons/tb";
+import { FcHome } from "react-icons/fc";
 import HomeIcon from '@mui/icons-material/Home';
-import MedicationIcon from '@mui/icons-material/Medication';
 import { Outlet } from "react-router-dom";
 import { Container } from '@mui/material';
 
@@ -132,7 +133,7 @@ export default function NewHeader() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <HomeIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+                                    <FcHome style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Overview" />
                             </ListItemButton>
@@ -143,7 +144,7 @@ export default function NewHeader() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <MedicationIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Doctors" />
                             </ListItemButton>
@@ -154,13 +155,24 @@ export default function NewHeader() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <HotelIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+                                    <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Patients" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-
+                    {/* Time and date selection */}
+                    <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <AiOutlineFieldTime style={{ color: '#000', fontSize: '1.5rem' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Appointment" />
+                            </ListItemButton>
+                        </ListItem>
+                    </NavLink>
+                    
                     <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
@@ -171,6 +183,7 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
+                    
                 </List>
             </Drawer>
             <Main open={open}>
