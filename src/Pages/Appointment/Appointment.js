@@ -10,8 +10,8 @@ const Appointment = () => {
       const onSubmit = data => console.log(data);
       const drawerWidth = 220;
 
-    return (
- <Box sx={{ flexGrow: 1,width: { sm: `calc(98% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` } }}>
+ return (
+     <Box sx={{ flexGrow: 1,width: { sm: `calc(98% - ${drawerWidth}px)` },ml: { sm: `${drawerWidth}px` } }}>
           <form onSubmit={handleSubmit(onSubmit)} className="appointment text-center">
               <h3>Take An Appointment</h3>
         <Grid container spacing={2}>
