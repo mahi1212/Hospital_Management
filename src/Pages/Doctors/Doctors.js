@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import MaterialReactTable from 'material-react-table';
-import { Box, Button, ListItemIcon, MenuItem, Typography } from '@mui/material';
-import { AccountCircle, Send } from '@mui/icons-material';
+import { Box, Button, Typography } from '@mui/material';
+// import { AccountCircle, Send } from '@mui/icons-material';
 import { makeData } from '../../../src/utils/makedata';
 
 const Doctors = () => {
@@ -123,7 +123,7 @@ const Doctors = () => {
       enableRowNumbers
       enableRowSelection
       onEditRowSubmit={handleSaveRow}
-      // positionToolbarAlertBanner="bottom"
+      positionToolbarAlertBanner="bottom"
       renderDetailPanel={({ row }) => (
         <Box
           sx={{
