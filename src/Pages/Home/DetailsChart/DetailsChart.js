@@ -1,7 +1,6 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import GenderPieChart from '../GenderPieChart/GenderPieChart';
-
 const DetailsChart = () => {
     const data = [{ name: 'Doctor', uv: 128, pv: 2400, amt: 2400 },
     { name: 'Patient', uv: 368, pv: 2400, amt: 2400 },
@@ -14,10 +13,13 @@ const DetailsChart = () => {
             justifyContent: 'space-evenly',
             flexWrap: 'wrap',
             alignItems: 'center',
+            borderRadius: '0.5rem',
+            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
             marginTop: '2rem',
             paddingTop: '2rem',
             backgroundColor: '#fff'
         }}>
+            
             <BarChart width={400} height={300} data={data}>
                 <XAxis dataKey="name" stroke="#8884d8" />
                 <YAxis />

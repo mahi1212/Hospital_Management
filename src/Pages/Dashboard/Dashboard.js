@@ -16,12 +16,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
-import { FaMandalorian, FaRunning } from "react-icons/fa";
-import HotelIcon from '@mui/icons-material/Hotel';
-import HomeIcon from '@mui/icons-material/Home';
-import MedicationIcon from '@mui/icons-material/Medication';
+import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
+import { AiOutlineFieldTime } from "react-icons/ai";
+import { TbBed } from "react-icons/tb";
+import { FcHome } from "react-icons/fc";
+import ListIcon from '@mui/icons-material/List';
 import { Outlet } from "react-router-dom";
-import { Container } from '@mui/material';
+import {Container } from '@mui/material';
+
 
 const drawerWidth = 240;
 
@@ -80,7 +82,6 @@ export default function NewHeader() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
     return (
         <Box sx={{ display: 'flex', background:'#F6F6F6'}} >
             <CssBaseline />
@@ -132,35 +133,65 @@ export default function NewHeader() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <HomeIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+
+                                    {/* <HomeIcon style={{ color: '#000', fontSize: '1.5rem' }} /> */}
+
+                                    <FcHome style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Overview" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-
+                   {/* Doctors Section*/}
                     <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <MedicationIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+
+                                    {/* <MedicationIcon style={{ color: '#000', fontSize: '1.5rem' }} /> */}
+
+                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Doctors" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-
+                     {/* Patients Section*/}
                     <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <HotelIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+
+                                    {/* <HotelIcon style={{ color: '#000', fontSize: '1.5rem' }} /> */}
+
+                                    <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Patients" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-
+                    {/* appointment Section*/}
+                    <NavLink to="/Addappointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <AiOutlineFieldTime style={{ color: '#000', fontSize: '1.5rem' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="AddAppointment" />
+                            </ListItemButton>
+                        </ListItem>
+                    </NavLink>
+                    <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ListIcon style={{ color: '#000', fontSize: '1.5rem' }}/>
+                                </ListItemIcon>
+                                <ListItemText primary="AppointmentList" />
+                            </ListItemButton>
+                        </ListItem>
+                    </NavLink>
+                   {/* Staff section */}
                     <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
