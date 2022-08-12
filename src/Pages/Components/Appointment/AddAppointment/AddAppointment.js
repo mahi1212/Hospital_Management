@@ -3,12 +3,11 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useForm } from 'react-hook-form';
 import './Appointment.css'
-import Calender from '../../Shared/Calender/Calender';
-import Time from '../../Shared/Time/Time';
+import Calender from '../../../Shared/Calender/Calender';
+import Time from '../../../Shared/Time/Time';
 const AddAppointment = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
-
   return (
     <Box sx={{ background: '#fff' }} style={{boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'}}>
       <form onSubmit={handleSubmit(onSubmit)} className="text-center" >

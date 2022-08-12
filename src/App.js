@@ -11,8 +11,10 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import Staffs from './Pages/Staffs/Staffs';
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import AddAppointment from "./Pages/Components/AddAppointment/AddAppointment";
-import AppointmentList from "./Pages/Components/AppointmentList";
+import AddAppointment from "./Pages/Components/Appointment/AddAppointment/AddAppointment";
+import AppointmentList from "./Pages/Components/Appointment/AppointmentList";
+import AddDept from "./Pages/Components/Department/AddDept/AddDept";
+import Department from "./Pages/Components/Department/Department/Department";
 
 function App() {
   return (
@@ -28,7 +30,9 @@ function App() {
             <Route path="staffs" element={<Staffs />} />
             <Route path="Addappointment" element={<AddAppointment />} />
             <Route path="appointment" element={<AppointmentList />} />
-
+            {/* <Route path="addDept" element={<AddDept />} /> */}
+            <Route path="dept" element={<Department />} />
+             
           </Route>
         </Routes>
         <Footer></Footer>

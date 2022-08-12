@@ -161,9 +161,6 @@ export default function NewHeader() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-
-                                    {/* <HotelIcon style={{ color: '#000', fontSize: '1.5rem' }} /> */}
-
                                     <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Patients" />
@@ -199,6 +196,16 @@ export default function NewHeader() {
                                     <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Staffs" />
+                            </ListItemButton>
+                        </ListItem>
+                    </NavLink>
+                    <NavLink to="/dept" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="dept" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>

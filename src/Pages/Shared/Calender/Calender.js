@@ -4,7 +4,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers';
 import { Container } from '@mui/system';
-import '../../Components/AddAppointment/Appointment.css'
+import '../../Components/Appointment/AddAppointment/Appointment.css'
 const Calender = () => {
     const [value, setValue] = React.useState(new Date());
 
