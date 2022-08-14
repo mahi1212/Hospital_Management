@@ -26,7 +26,7 @@ const Home = () => {
             borderRadius: '0.3rem',
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.05)',
           }}>
-            <Typography sx={{ fontSize: '1.2rem', textAlign: 'left', paddingLeft: '20px', paddingTop: '20px' }}>Parcentage of patients</Typography>
+            <Typography sx={{ fontSize: '1.2rem', textAlign: 'left', paddingLeft: '20px', paddingTop: '20px', fontFamily:'monospace' }}><strong>Parcentage of patients</strong></Typography>
             <RadialChart></RadialChart>
           </Box>
         </Grid>
