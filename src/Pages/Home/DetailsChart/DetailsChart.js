@@ -1,6 +1,6 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-import GenderPieChart from '../GenderPieChart/GenderPieChart';
+import GenderPieChart from './GenderPieChart/GenderPieChart';
 
 const DetailsChart = () => {
     const data = [{ name: 'Doctor', uv: 128, pv: 2400, amt: 2400 },

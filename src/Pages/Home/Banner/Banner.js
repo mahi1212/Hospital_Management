@@ -7,7 +7,6 @@ import { TbBed } from "react-icons/tb";
 
 const Banner = () => {
   return (
-    // sx={{ padding: '0 1rem' }}
     <Box >
       <Box sx={{
         display: 'flex',

@@ -50,7 +50,9 @@ const Feedback = () => {
 
     return (
         <Box sx={{
-            background: '#fff', padding: '1rem 0.1rem', borderRadius: '0.5rem',
+            background: '#fff',
+            padding: '1rem 0.1rem',
+            borderRadius: '0.5rem',
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
         }} >
             <Typography variant="h5" sx={{ fontFamily: 'monospace' }}>
