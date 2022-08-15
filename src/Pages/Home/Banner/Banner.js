@@ -7,17 +7,17 @@ import { TbBed } from "react-icons/tb";
 
 const Banner = () => {
   return (
-    // sx={{ padding: '0 1rem' }}
     <Box >
       <Box sx={{
         display: 'flex',
-        justifyContent : {xs:'center', sm:'center', md:'space-between', lg:'space-between', xl:'space-between'},
+        justifyContent : {xs:'center', sm:'center', md:'space-around', lg:'space-around', xl:'center'},
         alignItems: 'center',
-        gap: '1rem 0',
+        gap: '1rem 2.6rem',
         flexWrap: 'wrap',
         width: '100%',
+        fontFamily:'monospace' 
       }}>
-        <Paper elevation={2} sx={{ padding: '1rem', width:'14rem' }}>
+        <Paper elevation={2} sx={{ padding: '1rem', width:'14rem',}} >
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <div>
               <GiCherish style={{
@@ -96,6 +96,26 @@ const Banner = () => {
           </Box>
           <Typography>
             10 bed remaining usable
+          </Typography>
+        </Paper>
+        <Paper elevation={2} sx={{ padding: '1rem', width:'14rem' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
+            <div>
+              <FaAmbulance style={{
+                fontSize: '3rem',
+                color: '#B33030',
+                border: '2px solid #B33030',
+                borderRadius: '20%',
+                padding: '5px'
+              }} />
+            </div>
+            <div>
+              <Typography sx={{ fontWeight: '800' }}>120</Typography>
+              <p>Ambulence</p>
+            </div>
+          </Box>
+          <Typography>
+            19 Ambulence In service
           </Typography>
         </Paper>
         <Paper elevation={2} sx={{ padding: '1rem', width:'14rem' }}>
