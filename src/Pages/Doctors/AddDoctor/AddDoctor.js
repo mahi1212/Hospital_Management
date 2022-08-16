@@ -1,11 +1,17 @@
-import { Box, Button, Chip, Grid, TextField, Typography } from '@mui/material'
+import { Box, Button, Chip, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+// ListItem
 
 const AddDoctor = () => {
     return (
         <Box style={{ border: '2px solid #ccc', padding: '1rem 1rem', background: '#fff' }}>
             <Box style={{ display: 'flex' }}>
-                <Button variant='contained' sx={{ background: '#042A4A', color: '#fff' }}>Doctors List</Button>
+                <Button variant='contained' >
+                    <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#fff' }}>
+                        Doctors List
+                    </NavLink>
+                </Button>
             </Box>
             <hr></hr>
             <form>
@@ -74,6 +80,22 @@ const AddDoctor = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Typography variant='OVERLINE TEXT'>
+                            Sex
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+                        <RadioGroup
+                            row
+                            aria-labelledby="demo-row-radio-buttons-group-label"
+                            name="row-radio-buttons-group"
+                            required
+                        >
+                            <FormControlLabel value="male" control={<Radio />} label="Male" />
+                            <FormControlLabel value="female" control={<Radio />} label="Female" />
+                        </RadioGroup>
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <Typography variant='OVERLINE TEXT'>
                             Date of joining
                         </Typography>
                     </Grid>
@@ -90,7 +112,7 @@ const AddDoctor = () => {
                             <Button variant="outlined" color="error" type='reset'>
                                 RESET
                             </Button>
-                            <Chip label="OR" color="secondary" style={{marginLeft:'-.8rem', marginRight:'-.8rem', marginTop:'.1rem'}}/>
+                            <Chip label="OR" color="secondary" style={{ marginLeft: '-.8rem', marginRight: '-.8rem', marginTop: '.1rem' }} />
                             <Button variant="outlined" color="success" type='submit'>
                                 SAVE
                             </Button>
