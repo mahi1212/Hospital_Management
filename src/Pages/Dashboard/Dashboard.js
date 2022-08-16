@@ -18,10 +18,14 @@ import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
+import {MdOutlinePersonAddAlt} from 'react-icons/md';
 import { TbBed } from "react-icons/tb";
 import { FcHome } from "react-icons/fc";
 import { Outlet } from "react-router-dom";
 import { Container } from '@mui/material';
+import {BsCardChecklist} from "react-icons/bs";
+import TreeView from '@mui/lab/TreeView';
+import TreeItem from '@mui/lab/TreeItem';
 
 const drawerWidth = 240;
 
@@ -82,10 +86,10 @@ export default function NewHeader() {
     };
 
     return (
-        <Box sx={{ display: 'flex', background:'#F6F6F6'}} >
+        <Box sx={{ display: 'flex', background: '#F6F6F6' }} >
             <CssBaseline />
             <AppBar position="fixed" open={open}>
-                <Toolbar style={{background:'#fff', color:'#000'}}>
+                <Toolbar style={{ background: '#fff', color: '#000' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -138,8 +142,42 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-
-                    <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <TreeView
+                        style={{ color: '#000', textAlign: 'start', padding:'0 1rem' }}
+                        aria-label="file system navigator"
+                        defaultCollapseIcon={<div style={{ padding:'.8rem 0' }}>
+                            <FaUserNurse style={{ color: '#000', fontSize: '1.5rem', }} />
+                        </div>}
+                        defaultExpandIcon={<div style={{ padding:'.8rem 0'}}>
+                            <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
+                        </div>}
+                        sx={{ height: 160, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                    >
+                        <TreeItem nodeId="1" label="Doctors"
+                            style={{ color: '#000', PaddingLeft:'2rem' }}>
+                            <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <BsCardChecklist style={{ color: '#000', fontSize: '1.5rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Doctors List" />
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to="/addDoctor" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.5rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Add Doctor" />
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                        </TreeItem>
+                    </TreeView>
+                    {/* <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
@@ -148,7 +186,7 @@ export default function NewHeader() {
                                 <ListItemText primary="Doctors" />
                             </ListItemButton>
                         </ListItem>
-                    </NavLink>
+                    </NavLink> */}
 
                     <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
@@ -182,7 +220,7 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-                    
+
                 </List>
             </Drawer>
             <Main open={open}>

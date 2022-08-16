@@ -1,9 +1,10 @@
 import { Box, Paper, Typography } from '@mui/material'
 import React from 'react'
-import { FaAccessibleIcon, FaAmbulance } from "react-icons/fa";
+import { FaAccessibleIcon, FaAmbulance, FaUserTie } from "react-icons/fa";
 import { GiCherish, } from "react-icons/gi";
 import { FiUsers, } from "react-icons/fi";
 import { TbBed } from "react-icons/tb";
+import { MdPersonPin } from "react-icons/md";
 
 const Banner = () => {
   return (
@@ -121,21 +122,21 @@ const Banner = () => {
         <Paper elevation={2} sx={{ padding: '1rem', width:'14rem' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <div>
-              <FaAmbulance style={{
+              <MdPersonPin style={{
                 fontSize: '3rem',
-                color: '#B33030',
-                border: '2px solid #B33030',
+                color: '#7B1EA2',
+                border: '2px solid #7B1EA2',
                 borderRadius: '20%',
                 padding: '5px'
               }} />
             </div>
             <div>
-              <Typography sx={{ fontWeight: '800' }}>120</Typography>
-              <p>Ambulence</p>
+              <Typography sx={{ fontWeight: '800' }}>12</Typography>
+              <p>Representative</p>
             </div>
           </Box>
           <Typography>
-            19 Ambulence In service
+            6 Representative is active
           </Typography>
         </Paper>
       </Box>

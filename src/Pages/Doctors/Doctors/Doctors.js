@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import MaterialReactTable from 'material-react-table';
 import { Box, Button, Typography } from '@mui/material';
 // import { AccountCircle, Send } from '@mui/icons-material';
-import { makeData } from '../../../src/utils/makedata';
+import { makeData } from '../../../utils/makedata';
 
 const Doctors = () => {
   const columns = useMemo(
