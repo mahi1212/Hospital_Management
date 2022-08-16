@@ -174,9 +174,9 @@ export default function NewHeader() {
                                 <ListItem disablePadding>
                                     <ListItemButton>
                                         <ListItemIcon>
-                                            <BsCardChecklist style={{ color: '#000', fontSize: '1.5rem' }} />
+                                            <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} />
                                         </ListItemIcon>
-                                        <ListItemText primary="Doctor List" />
+                                        <ListItemText primary="Doctor List" style={{marginLeft:'-1rem'}}/>
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
@@ -184,9 +184,9 @@ export default function NewHeader() {
                                 <ListItem disablePadding>
                                     <ListItemButton>
                                         <ListItemIcon>
-                                            <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.5rem' }} />
+                                            <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
-                                        <ListItemText primary="Add Doctor" />
+                                        <ListItemText primary="Add Doctor" style={{marginLeft:'-1rem'}} />
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
