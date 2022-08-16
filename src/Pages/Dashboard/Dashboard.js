@@ -146,7 +146,7 @@ export default function NewHeader() {
                     <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
+                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem', marginRight:'1rem' }} />
                                 </ListItemIcon>
                             </ListItemButton>
                         </ListItem>
@@ -154,18 +154,19 @@ export default function NewHeader() {
                         style={{
                             color: '#000', background: '#fff',
                             textAlign: 'justify', paddingLeft:'2.5rem',
-                            marginTop:'-2.4rem'
+                            marginTop:'-2.4rem',
+                            borderRadius: '0 30px 30px 0',
                         }}
                         aria-label="file system navigator"
                         defaultExpanded={['1']}
                         defaultCollapseIcon={
-                            <div style={{ padding: '.2rem 0', visibility:'hidden'}}>
+                            <div style={{ padding: '.3rem 0', visibility:'hidden'}}>
                                 <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                             </div>}
-                        defaultExpandIcon={<div style={{ padding: '.2rem 0', visibility:'hidden' }}>
+                        defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility:'hidden' }}>
                             <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                         </div>}
-                        sx={{ height: 155, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                        sx={{ height: 140, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
                     >
                         <TreeItem nodeId="1" label="Doctors"
                             style={{ color: '#000', background: '#FFFFFF' }}>
