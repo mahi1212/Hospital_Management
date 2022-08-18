@@ -12,6 +12,9 @@ import Staffs from "./Pages/Staffs/Staffs";
 import Appointment from "./Pages/Appointment/Appointment";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddDoctor from "./Pages/Doctors/AddDoctor/AddDoctor";
+import Login from "./Pages/Home/Login/Login";
+import Registration from "./Pages/Home/Registration/Registration";
+
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
             <Route path="patients" element={<Patients />} />
             <Route path="staffs" element={<Staffs />} />
             <Route path="appointment" element={<Appointment />} />
+            <Route path="login" element={<Login />} />
+           <Route path="registration" element={<Registration />} />
           </Route>
         </Routes>
         <Footer></Footer>
