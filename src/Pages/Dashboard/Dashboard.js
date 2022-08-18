@@ -26,6 +26,8 @@ import { Container } from '@mui/material';
 import { BsCardChecklist } from "react-icons/bs";
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
+
+import LoginIcon from '@mui/icons-material/Login';
 export { useState } from 'react';
 
 const drawerWidth = 240;
@@ -232,6 +234,16 @@ export default function NewHeader() {
                                     <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Staffs" />
+                            </ListItemButton>
+                        </ListItem>
+                    </NavLink>
+                    <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <LoginIcon style={{ color: '#000', fontSize: '1.5rem' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Login" />
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
