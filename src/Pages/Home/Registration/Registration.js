@@ -25,15 +25,13 @@ const Registration = () => {
   }
 
   return (
-    <Container fixed>
-      <Typography variant="bosy1" gutterBottom component="div">
+    <Container fixed style={{background:'#fff', padding:'1rem 0'}}>
+      <Typography variant="OVERLINE TEXT" gutterBottom component="div">
         Register as patient
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-
           <Grid item xs={12} md={6} >
-
             <form onClick={handleLoginSubmit}>
               <TextField
                 sx={{ width: '50%', m: 1 }}
