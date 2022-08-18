@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Mahinur Rahman",
+        "fee": "800",
+        "time": "10:00 AM- 11:00 AM"
+    },
+    {
+        "name": "Jakir Ahmed",
+        "fee": "500",
+        "time": "11:00 AM- 2:00 PM"
+    },
+    {
+        "name": "Shahriar Ariyan",
+        "fee": "700",
+        "time": "1:00 PM- 4:00 PM"
+    }
+]

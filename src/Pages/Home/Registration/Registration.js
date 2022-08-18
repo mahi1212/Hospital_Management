@@ -25,7 +25,7 @@ const Registration = () => {
   }
 
   return (
-    <Container fixed style={{background:'#fff', padding:'1rem 0'}}>
+    <Container fixed style={{ background: '#fff', padding: '1rem 0' }}>
       <Typography variant="OVERLINE TEXT" gutterBottom component="div">
         Register as patient
       </Typography>

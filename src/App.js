@@ -9,7 +9,7 @@ import Home from "./Pages/Home/Home/Home";
 import Patients from "./Pages/Patients/Patients";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Staffs from "./Pages/Staffs/Staffs";
-import Appointment from "./Pages/Appointment/Appointment";
+import Appointment from "./Pages/Appointments/Appointment";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddDoctor from "./Pages/Doctors/AddDoctor/AddDoctor";
 import Login from "./Pages/Home/Login/Login";

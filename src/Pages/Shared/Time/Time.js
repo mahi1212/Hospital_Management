@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import'../../Appointment/Appointment.css'
+import'../../Appointments/Appointment.css'
 import { Container } from '@mui/system';
 const Time = () => {
     const [value, setValue] = React.useState(new Date());
