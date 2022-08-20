@@ -137,7 +137,7 @@ export default function NewHeader() {
                 <List>
                     <NavLink to="/" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}> 
                                 <ListItemIcon>
                                     <FcHome style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
@@ -146,7 +146,7 @@ export default function NewHeader() {
                         </ListItem>
                     </NavLink>
                     <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
                                     <FaUserNurse style={{ color: '#000', fontSize: '1.5rem', marginRight:'1rem' }} />
                                 </ListItemIcon>
@@ -157,7 +157,6 @@ export default function NewHeader() {
                             color: '#000', background: '#fff',
                             textAlign: 'justify', paddingLeft:'2.5rem',
                             marginTop:'-2.4rem',
-                            borderRadius: '0 30px 30px 0',
                         }}
                         aria-label="file system navigator"
                         defaultExpanded={['1']}
@@ -174,7 +173,7 @@ export default function NewHeader() {
                             style={{ color: '#000', background: '#FFFFFF' }}>
                             <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                                 <ListItem disablePadding>
-                                    <ListItemButton>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                         <ListItemIcon>
                                             <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} />
                                         </ListItemIcon>
@@ -184,7 +183,7 @@ export default function NewHeader() {
                             </NavLink>
                             <NavLink to="/addDoctor" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                                 <ListItem disablePadding>
-                                    <ListItemButton>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                         <ListItemIcon>
                                             <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
@@ -207,7 +206,7 @@ export default function NewHeader() {
 
                     <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
                                     <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
@@ -218,7 +217,7 @@ export default function NewHeader() {
                     {/* Time and date selection */}
                     <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
                                     <AiOutlineFieldTime style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
@@ -229,7 +228,7 @@ export default function NewHeader() {
 
                     <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
                                     <FaRunning style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
@@ -239,7 +238,7 @@ export default function NewHeader() {
                     </NavLink>
                     <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
                                     <LoginIcon style={{ color: '#000', fontSize: '1.5rem' }} />
                                 </ListItemIcon>
