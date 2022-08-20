@@ -11,7 +11,6 @@ import {
   Select,
   MenuItem,
   OutlinedInput,
-  InputLabel,
 } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -152,7 +151,6 @@ const AddDoctor = () => {
                 value={personName}
                 onChange={handleChange}
                 variant="standard"
-                // rows={5}
                 fullWidth
                 input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                 renderValue={(selected) => (

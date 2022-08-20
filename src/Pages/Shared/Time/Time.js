@@ -19,7 +19,7 @@ const Time = () => {
               setValue(newValue);
             }}
             shouldDisableTime={(timeValue, clockType) => {
-              if (clockType === 'hours' && timeValue % 4) {
+              if (clockType === 'hours' && timeValue % 1) {
                 return true;
               }
   
