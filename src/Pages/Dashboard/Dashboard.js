@@ -194,16 +194,6 @@ export default function NewHeader() {
                             </NavLink>
                         </TreeItem>
                     </TreeView>
-                    {/* <NavLink to="/doctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Doctors" />
-                            </ListItemButton>
-                        </ListItem>
-                    </NavLink> */}
 
                     <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>

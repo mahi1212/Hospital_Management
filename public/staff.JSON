@@ -1,10 +1,10 @@
 [
-    {
+    {   
         "name": "Abu Kalam",
         "contact":"018-882-9834",
         "shiftingHour":"Night"
     },
-    {
+    {    
         "name": "Mr.harry",
         "contact":"019-874-834",
         "shiftingHour":"Day"
@@ -14,20 +14,20 @@
         "contact":"017-783-744",
         "shiftingHour":"Day"
     },
-    {
+    {     
         "name": "Basu Deb",
         "contact":"019-002-9834",
         "shiftingHour":"Day"
     },
-    {
+    {     
         "name":"Gerriets",
         "contact":"908-483-0758",
-        "shiftingHour":"Day"
+        "shiftingHour":"Night"
     },
-    {
+    {   
         "name":"Langcaster",
         "contact":"291-566-2493",
-        "shiftingHour":"Day"
+        "shiftingHour":"Night"
     },
     {
         "name":"Feben",
