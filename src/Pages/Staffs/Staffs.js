@@ -21,13 +21,13 @@ const columns = [
   {
     id: 'shiftingHour',
     label: 'Shifting_Hour',
-    minWidth: 150,
+    minWidth: 170,
     align: 'center',
   },
   {
     id: 'Payment service',
     label: 'Payment service',
-    minWidth: 50,
+    minWidth: 100,
     align: 'center',
   },
 ];
@@ -65,9 +65,9 @@ export default function Staffs() {
   }, [])
   return (
     <Paper style={{ 'border-radius': '4px', 'box-sizing': 'border-box', 'box-shadow': '0px 5px 0px 5px #3c175b4c', 'padding': '3px' }}sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 430 }}>
         <Table stickyHeader >
-          <TableHead >
+          <TableHead>
             <TableRow>
               {columns.map((column) => (
                 <TableCell 
@@ -104,8 +104,8 @@ export default function Staffs() {
                       ); 
                     })}
                   
-              <TableCell align="center">
-                <Button style={{ 'background-color': 'rgba(47, 35, 77, 0.822)', color: 'rgb(232, 238, 244)', 'border-radius': '4px' }} onClick={handleClickOpen}>Payment</Button>
+              <TableCell>
+                <Button style={{'marginLeft':"-110px", 'background-color': 'rgba(47, 35, 77, 0.822)', color: 'rgb(232, 238, 244)', 'border-radius': '4px' }} onClick={handleClickOpen}>Payment</Button>
                 <Dialog
                   open={open}
                   TransitionComponent={Transition}
@@ -129,6 +129,7 @@ export default function Staffs() {
               })}
              
           </TableBody>
+
         </Table>
       </TableContainer>
       <TablePagination
