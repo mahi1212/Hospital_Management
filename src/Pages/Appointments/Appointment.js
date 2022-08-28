@@ -80,18 +80,39 @@ export default class Appointment extends Component {
               <Time />
             </Grid>
           </Grid>
-          <input
-            style={{
-              background: "#1C0633",
-              color: "#FAF5FA ",
-              "margin-bottom": "5%",
-              "margin-top": "6%",
-              padding: "1rem 5rem",
-              fontSize: "1rem",
-              borderRadius: "5px",
-            }}
-            type="submit"
-          />
+          <hr style={{marginTop:"2rem", width:'80%'}}/>
+          <Box style={{display:'flex'}} sx={{ml:{md:'8rem', }}}>
+            <input
+              style={{
+                background: "#EF5B0C",
+                color: "#FAF5FA ",
+                marginBottom:"1rem",
+                marginTop: "1rem",
+                padding: "1rem 3rem",
+                fontSize: "1rem",
+                borderRadius: "5px",
+                cursor:'pointer',
+                border:'none'
+              }}
+              type="submit"
+            />
+            <input
+              style={{
+                background: "#1C0633",
+                color: "#FAF5FA ",
+                marginBottom:"1rem",
+                marginTop: "1rem",
+                padding: "1rem 3rem",
+                fontSize: "1rem",
+                borderRadius: "5px",
+                cursor:'pointer',
+                marginLeft:'1rem'
+              }}
+              type="submit"
+              value="Print PDF of Reciption"
+            />
+          </Box>
+          
         </form>
       </Box>
     );
