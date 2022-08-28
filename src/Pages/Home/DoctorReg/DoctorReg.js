@@ -4,55 +4,46 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Button, Card, TextField, Typography } from '@mui/material';
 import {Link} from 'react-router-dom'
-import Register from '../Register/Register';
-
-const Registration = () => {
-
-
-
-    const [loginData,setLoginData] = useState({})
-    const handleOnChange = e => {
-      const feild = e.target.name;
-      const value = e.target.value;
-      console.log(feild, value)
-      const newLoginData = { ...loginData }
-      newLoginData[feild] = value;
-      setLoginData(newLoginData);
-  }
-  
-    const handleLoginSubmit = e => {
-      // alert('submit')
-      e.preventDefault();
-  }
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 
 
 
+const DoctorReg = () => {
+    
+  const [loginData,setLoginData] = useState({})
+  const handleOnChange = e => {
+    const feild = e.target.name;
+    const value = e.target.value;
+    console.log(feild, value)
+    const newLoginData = { ...loginData }
+    newLoginData[feild] = value;
+    setLoginData(newLoginData);
+}
 
-
+  const handleLoginSubmit = e => {
+    e.preventDefault();
+}
 
 
 
   return (
-    <Card sx={{ 
-    minWidth: 276,
-    height:'931px',
-    boxShadow:'none' ,
-    // marginTop:'15%',
-    // backgroundColor:'rgb(45, 225, 240)',
-    background: 'linear-gradient(to right bottom, #430089, #82ffa1)'
-    }} xs={12} md={6} sm={12}>
    
-<Container fixed>
-<Typography variant="bosy1" gutterBottom component="div">
-      <Register ></Register>
+    <div>
+        <Container fixed>
+<Typography variant="h5" gutterBottom component="div"sx={{}}>
+     Register As Doctor
           </Typography>
-    {/* <Box sx={{ flexGrow: 1 }}> */}
-      {/* <Grid container spacing={2}>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
         
-        <Grid item xs={12} md={6} > */}
+        <Grid item xs={12} md={6} >
         
-          {/* <form onClick={handleLoginSubmit}>
+           <form onClick={handleLoginSubmit}>
           <TextField
               sx={{width:'50%',m:1}}
               id="standard-basic"
@@ -64,8 +55,7 @@ const Registration = () => {
               sx={{width:'50%',m:1}}
               id="standard-basic"
               label="Your mail"
-              name='email'rt
-
+              name='email'
               onChange={handleOnChange}
               variant="standard" />
 
@@ -80,14 +70,14 @@ const Registration = () => {
             />  
         
          
-          </form> */}
-        {/* </Grid>
-        <Grid item xs={12} md={6} > */}
-        {/* <form onClick={handleLoginSubmit}>
+          </form> 
+        </Grid>
+        <Grid item xs={12} md={6} >
+         <form onClick={handleLoginSubmit}>
              <TextField
               sx={{width:'50%',m:1}}
               id="standard-basic"
-              label="Last Name"
+              label="Address"
               name='text'
               onChange={handleOnChange}
               variant="standard" />
@@ -114,20 +104,33 @@ const Registration = () => {
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: '#2DE1F0',
+              backgroundColor: ' #430089',
               color: 'white'
-            }}>Login</Button>
+            }}>Register</Button>
                   
 
-        </form> */}
-        {/* </Grid>
+        </form> 
+        </Grid>
       
       </Grid>
-    </Box> */}
-    {/* <Link to='/login'><Button  sx={{ width: '50%', m: 1 }} color="inherit">Already have an account</Button></Link> */}
+      <FormControl>
+      <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+      <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue="female"
+        name="radio-buttons-group"
+        sx={{width:'50%',m:1}}
+      >
+        <FormControlLabel value="female" control={<Radio />} label="Female"  sx={{width:'100%',m:1}}/>
+        <FormControlLabel value="male" control={<Radio />} label="Male"  sx={{width:'50%',m:1}}/>
+        <FormControlLabel value="other" control={<Radio />} label="Other"  sx={{width:'50%',m:1}}/>
+      </RadioGroup>
+    </FormControl>
+    </Box>
+    <Link to='/login'><Button  sx={{ width: '50%', m: 1 }} color="inherit">Already have an account</Button></Link>
     </Container>
-    </Card>
+    </div>
   )
 }
 
-export default Registration
+export default DoctorReg
