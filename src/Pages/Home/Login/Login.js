@@ -32,7 +32,7 @@ const Login = () => {
       minWidth: 200,
       maxWidth:'100vw',
       height:'865px',
-      background: 'linear-gradient(to right bottom, #430089, #82ffa1)'
+      // background: 'linear-gradient(to right bottom, #430089, #82ffa1)'
       
       }} 
       
@@ -69,17 +69,21 @@ const Login = () => {
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: '#430089',
-              color: 'white'
+              backgroundColor: '#e6ecf0',
+              color: 'black'
             }}>Login</Button>
-             <Button
+                 <Typography>----------OR----------</Typography>
+            <GoogleIcon 
             sx={{ width: '50%', m: 1 }}
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: '#430089',
-              color: 'white'
-            }}>Signinwith<GoogleIcon/>oogle</Button>
+            // backgroundColor: '#e6ecf0',
+            // color: '#EA4335'
+            color: 'linear-gradient(to right bottom,(2, 89, 87, 0),(234, 67, 53))'
+            }}
+            ></GoogleIcon>
+
 
        <Link to='/registration'><Button  sx={{ width: '50%', m: 1 }} >For the First time</Button></Link>
           </form>
