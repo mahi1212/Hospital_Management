@@ -72,7 +72,7 @@ const Login = () => {
               backgroundColor: '#e6ecf0',
               color: 'black'
             }}>Login</Button>
-                 <Typography>----------OR----------</Typography>
+                 <Typography>-----------OR-----------</Typography>
             <GoogleIcon 
             sx={{ width: '50%', m: 1 }}
             varient="contained"
