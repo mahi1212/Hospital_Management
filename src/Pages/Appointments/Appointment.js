@@ -1,88 +1,98 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react'
+import Select from 'react-select'
+import axios from 'axios'
+import { Grid } from '@mui/material'
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { useForm } from 'react-hook-form';
 import './Appointment.css'
 import Calender from '../Shared/Calender/Calender';
 import Time from '../Shared/Time/Time';
-// import { appointmentData } from '../../utils/appointmentData';
+export default class Appointment extends Component {
 
-const Appointment = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  constructor(props){
+    super(props)
+    this.state = {
+      selectOptions : [],
+      id: "",
+      name: ''
+    }
+  }
 
-  const [appointments, setAppointments] = useState([]);
-  useEffect(() => {
-    fetch('./appointmentData.json')
-      .then(res => res.json())
-      .then(data => setAppointments(data))
-  }, [])
+ async getOptions(){
+    const res = await axios.get('./appointmentData.json')
+    const data = res.data
+    const options = data.map(d => ({
+      "value" : d.fee,
+      "label" : d.name
+    }))
+    this.setState({selectOptions: options})
+  }
+  handleChange(e){
+   this.setState({fee:e.value, name:e.label})
+  }
+  componentDidMount(){
+      this.getOptions()
+  }
+ 
 
-  return (
-    <Box sx={{ background: '#fff' }} style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
-      <form onSubmit={handleSubmit(onSubmit)} className="text-center" >
-        <Box className='appointment'>
-          <h3>Take An Appointment</h3>
-          <Grid container spacing={2} >
+  render() {
+    return (
+      
+      <Box sx={{ background: '#fff' }} style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
+        <form  className="text-center" >
+          <Box className='appointment'>
+            <h3>Take An Appointment</h3>
+            <Grid container spacing={2} >
+              <Grid item xs={12} md={4} >
+                <h4>Select Doctor</h4>
+              </Grid>
+
+              <Grid item  xs={12} md={4} >
+            
+                <Select style={{width:'50%', textAlign:'center'}} options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} >
+              <Grid item xs={12} md={4} >
+                <h4>Consultency Fee</h4>
+              </Grid>
+              <Grid item xs={12} md={4}  >
+
+                <div className="textA"style={{ textAlign:'center'}}>
+               {this.state.fee}
+                </div>
+              </Grid>
+            </Grid>
+          </Box>
+          <Grid container spacing={2}>
             <Grid item xs={12} md={4} >
-              <h4>Select Doctor</h4>
+              <h4>Select Date</h4>
             </Grid>
             <Grid item xs={12} md={8}  >
-              <select {...register("name")} style={{width:'80%', textAlign:'center'}}>
-                {
-                  appointments.map((item, index) => (
-                    <option key={index} value={item.name}>{item.name}</option>
-                  ))
-                }
-              </select>
+              <Calender />
             </Grid>
           </Grid>
-          <Grid container spacing={2} >
+          <Grid container spacing={2}>
             <Grid item xs={12} md={4} >
-              <h4>Consultency Fee</h4>
+              <h4>Select Time</h4>
             </Grid>
-            <Grid item xs={12} md={8}  >
-              <select {...register("name")} style={{width:'80%', textAlign:'center'}}>
-                {
-                  appointments.map((item, index) => (
-                    <option key={index} value={item.name}>{item.fee}</option>
-                  ))
-                }
-              </select>
+            <Grid item xs={12} md={8} >
+              <Time />
             </Grid>
           </Grid>
-        </Box>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4} >
-            <h4>Select Date</h4>
-          </Grid>
-          <Grid item xs={12} md={8}  >
-            <Calender />
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4} >
-            <h4>Select Time</h4>
-          </Grid>
-          <Grid item xs={12} md={8} >
-            <Time />
-          </Grid>
-        </Grid>
-        <input style={{
-          background: "#1C0633",
-          color: '#FAF5FA ',
-          'margin-bottom': "5%",
-          'margin-top': "6%",
-          padding: '1rem 5rem',
-          fontSize: '1rem',
-          borderRadius: '5px'
-        }}
-          type="submit" />
-      </form>
-    </Box>
-
-
-  );
+          <input style={{
+            background: "#1C0633",
+            color: '#FAF5FA ',
+            'margin-bottom': "5%",
+            'margin-top': "6%",
+            padding: '1rem 5rem',
+            fontSize: '1rem',
+            borderRadius: '5px'
+          }}
+            type="submit" />
+        </form>
+      </Box>
+  
+  
+    );
+  }
 }
-
-export default Appointment;

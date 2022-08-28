@@ -21,3 +21,16 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
+.textA{
+    border: 1px solid #ccc;
+    padding: 13px 5px;
+    font-size: 20px;
+    margin-top: 15px;
+    height: 60px;
+    margin-left: 4px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* align-items: center;
+    justify-content: center;
+    display: flex; */
+}
