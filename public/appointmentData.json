@@ -13,5 +13,15 @@
         "name": "Shahriar Ariyan",
         "fee": "700",
         "time": "1:00 PM- 4:00 PM"
+    },
+    {
+        "name": "Noorjahan Ashraf",
+        "fee": "500",
+        "time": "11:00 AM- 2:00 PM"
+    },
+    {
+        "name": "Jenny Begum",
+        "fee": "700",
+        "time": "1:00 PM- 4:00 PM"
     }
 ]

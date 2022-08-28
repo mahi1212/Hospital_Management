@@ -4,57 +4,57 @@
     {   
         "name": "Abu Kalam",
         "contact":"018-882-9834",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     },
     {    
         "name": "Mr.harry",
         "contact":"019-874-834",
-        "shiftingHour":"Day"
+        "serviceTime":"Day"
     },
     {
         "name": "A.Alam",
         "contact":"017-783-744",
-        "shiftingHour":"Day"
+        "serviceTime":"Day"
     },
     {     
         "name": "Basu Deb",
         "contact":"019-002-9834",
-        "shiftingHour":"Day"
+        "serviceTime":"Day"
     },
     {     
         "name":"Gerriets",
         "contact":"908-483-0758",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     },
     {   
         "name":"Langcaster",
         "contact":"291-566-2493",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     },
     {
         "name":"Feben",
         "contact":"490-716-3765",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     },
     {
         "name":"Blundan",
         "contact":"113-256-3833",
-        "shiftingHour":"Day"
+        "serviceTime":"Day"
     },
     {
         "name":"Hunstone",
         "contact":"206-774-7572",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     },
     {
         "name":"Jennaroy",
         "contact":"507-260-1015",
-        "shiftingHour":"Day"
+        "serviceTime":"Day"
     },
     {
         "name":"Schwanden",
         "contact":"787-596-2756",
-        "shiftingHour":"Night"
+        "serviceTime":"Night"
     }
 ]
 

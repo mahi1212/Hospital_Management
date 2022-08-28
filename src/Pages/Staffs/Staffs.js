@@ -11,7 +11,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Slide 
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'ID', label: 'Staff_ID', minWidth: 100 },
+  // { id: 'ID', label: 'Staff_ID', minWidth: 100 },
   {
     id: 'contact',
     label: 'Contact',
@@ -19,8 +19,8 @@ const columns = [
     align: 'center',
   },
   {
-    id: 'shiftingHour',
-    label: 'Shifting_Hour',
+    id: 'serviceTime',
+    label: 'Service Time',
     minWidth: 170,
     align: 'center',
   },
