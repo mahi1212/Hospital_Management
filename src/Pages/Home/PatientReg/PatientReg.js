@@ -102,8 +102,8 @@ const PatientReg = () => {
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: '#430089',
-              color: 'white'
+              backgroundColor: '#e6ecf0',
+              color: 'black'
             }}>Register</Button>
                   
     

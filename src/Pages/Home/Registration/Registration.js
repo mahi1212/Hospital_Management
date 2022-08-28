@@ -6,6 +6,10 @@ import { Button, Card, TextField, Typography } from '@mui/material';
 import {Link} from 'react-router-dom'
 import Register from '../Register/Register';
 
+
+
+
+
 const Registration = () => {
 
 
@@ -40,7 +44,7 @@ const Registration = () => {
     boxShadow:'none' ,
     // marginTop:'15%',
     // backgroundColor:'rgb(45, 225, 240)',
-    background: 'linear-gradient(to right bottom, #430089, #82ffa1)'
+    // background: 'linear-gradient(to right bottom, #430089, #82ffa1)'
     }} xs={12} md={6} sm={12}>
    
 <Container fixed>

@@ -53,15 +53,21 @@ export default function Register() {
     setValue(newValue);
   };
   const boxSX = {
-    "&:hover": {
-      border: "1px solid rgb(45, 225, 240);",
-      color: 'black',
+    // "&:hover": {
+    //   border: "1px solid rgb(45, 225, 240);",
+    //   color: 'black',
+    //   borderRadius:'30px',
+    //   backgroundColor: 'white',
+    //   maxWidth:'80px'
+    // },
+    "&:focus" :{
+      backgroundColor:"white",
       borderRadius:'30px',
-      backgroundColor: 'white',
-      maxWidth:'80px'
-    },
+      color:'black'
+    }
   };
 
+  
 
   return (
     <Card sx={{ 
@@ -80,8 +86,10 @@ export default function Register() {
     <Box >
       <Box >
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
+        
         sx={{
-          backgroundColor:' #430089',
+          // backgroundColor:' #430089',
+          backgroundColor:'#e6ecf0',
           borderRadius:'100px',
           marginTop:'20px',
           display:'flex',

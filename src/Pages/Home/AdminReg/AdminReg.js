@@ -55,17 +55,28 @@ const AdminReg = () => {
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: ' #430089',
-              color: 'white'
+              backgroundColor: ' #e6ecf0',
+              color: 'black'
             }}>Login</Button>
-              <Button
+              {/* <Button
             sx={{ width: '50%', m: 1 }}
             varient="contained"
             type="submit"
             style={{
               backgroundColor: '#430089',
               color: 'white'
-            }}>Signinwith<GoogleIcon/>oogle</Button>
+            }}>Signinwith<GoogleIcon/>oogle</Button> */}
+           <Typography>----------OR----------</Typography>
+            <GoogleIcon 
+            sx={{ width: '50%', m: 1 }}
+            varient="contained"
+            type="submit"
+            style={{
+            // backgroundColor: '#e6ecf0',
+            // color: '#EA4335'
+            color: 'linear-gradient(to right bottom,(2, 89, 87, 0),(234, 67, 53))'
+            }}
+            ></GoogleIcon>
           </form>
         </Grid>
       
