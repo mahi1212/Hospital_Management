@@ -1,19 +1,14 @@
+
 import React, { useState } from 'react'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Button, Card, TextField, Typography } from '@mui/material';
-import {Link} from 'react-router-dom'
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import {Link, NavLink} from 'react-router-dom'
+import Gender from '../../Shared/Gender/Gender';
 
+const DoctortReg = () => {
 
-
-
-const DoctorReg = () => {
     
   const [loginData,setLoginData] = useState({})
   const handleOnChange = e => {
@@ -28,70 +23,63 @@ const DoctorReg = () => {
   const handleLoginSubmit = e => {
     e.preventDefault();
 }
-
-
-
   return (
-   
     <div>
-        <Container fixed>
-<Typography variant="h5" gutterBottom component="div"sx={{}}>
-     Register As Doctor
+     <Container fixed>
+<Typography variant="h5" gutterBottom component="div">
+     Register As Patient
           </Typography>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+          <Box
+   
+  >
+    <form className="text-center" onClick={handleLoginSubmit}>
+      {/* <Box className="appointment"> */}
         
-        <Grid item xs={12} md={6} >
-        
-           <form onClick={handleLoginSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6} sm={12}>
           <TextField
-              sx={{width:'50%',m:1}}
+              sx={{width:'70%',m:1}}
               id="standard-basic"
               label="First Name"
               name='text'
               onChange={handleOnChange}
               variant="standard" />
+          </Grid>
+          <Grid item xs={12} md={6}>
           <TextField
-              sx={{width:'50%',m:1}}
-              id="standard-basic"
-              label="Your mail"
-              name='email'
-              onChange={handleOnChange}
-              variant="standard" />
-
-            <TextField
-              sx={{width:'50%',m:1}}
-              id="standard-basic"
-              label="Your password"
-              name='password'
-              onChange={handleOnChange}
-              variant="standard"
-              type="password"  
-            />  
-        
-         
-          </form> 
-        </Grid>
-        <Grid item xs={12} md={6} >
-         <form onClick={handleLoginSubmit}>
-             <TextField
-              sx={{width:'50%',m:1}}
+              sx={{width:'70%',m:1}}
               id="standard-basic"
               label="Address"
               name='text'
               onChange={handleOnChange}
               variant="standard" />
-
-              <TextField
-              sx={{width:'50%',m:1}}
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6} sm={12}>
+          <TextField
+              sx={{width:'70%',m:1}}
+              id="standard-basic"
+              label="Your mail"
+              name='email'
+              onChange={handleOnChange}
+              variant="standard" /> 
+          </Grid>
+          <Grid item xs={12} md={6}>
+          <TextField
+              sx={{width:'70%',m:1}}
               id="standard-basic"
               label="Your phone"
               name='email'
               onChange={handleOnChange}
               variant="standard" />
-
-              <TextField
-              sx={{width:'50%',m:1}}
+          </Grid>
+        </Grid>
+      {/* </Box> */}
+      <Grid container spacing={2}>
+          <Grid item xs={12} md={6} sm={12}>
+          <TextField
+              sx={{width:'70%',m:1}}
               id="standard-basic"
               label="Your password"
               name='password'
@@ -99,38 +87,50 @@ const DoctorReg = () => {
               variant="standard"
               type="password"  
             /> 
-                 <Button
-            sx={{ width: '50%', m: 3 }}
+          </Grid>
+          <Grid item xs={12} md={6}>
+          <TextField
+              sx={{width:'70%',m:1}}
+              id="standard-basic"
+              label="Confirm password"
+              name=' confirm password'
+              onChange={handleOnChange}
+              variant="standard"
+              type="password"  
+            /> 
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6} sm={12}>
+           <Gender></Gender>
+          </Grid>
+          <Grid item xs={12} md={6}>
+          {/* <TextField
+              sx={{width:'50%',m:1}}
+              id="standard-basic"
+              label="Your mail"
+              name='email'
+            //   onChange={handleOnChange}
+              variant="standard" /> */}
+          </Grid>
+        </Grid>
+  
+    </form>
+    <Button
+            sx={{ width: '30%', m: 3 }}
             varient="contained"
             type="submit"
             style={{
             backgroundColor: ' #e6ecf0',
             color: 'black'
             }}>Register</Button>
-                  
-
-        </form> 
-        </Grid>
-      
-      </Grid>
-      <FormControl>
-      <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-      <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
-        name="radio-buttons-group"
-        sx={{width:'50%',m:1}}
-      >
-        <FormControlLabel value="female" control={<Radio />} label="Female"  sx={{width:'100%',m:1}}/>
-        <FormControlLabel value="male" control={<Radio />} label="Male"  sx={{width:'50%',m:1}}/>
-        <FormControlLabel value="other" control={<Radio />} label="Other"  sx={{width:'50%',m:1}}/>
-      </RadioGroup>
-    </FormControl>
-    </Box>
+  </Box>
+    
     <Link to='/login'><Button  sx={{ width: '50%', m: 1 }} color="inherit">Already have an account</Button></Link>
     </Container>
     </div>
+
   )
 }
 
-export default DoctorReg
+export default DoctortReg;
