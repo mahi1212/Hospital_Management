@@ -26,14 +26,10 @@ const PatientReg = () => {
   return (
     <div>
      <Container fixed>
-<Typography variant="h5" gutterBottom component="div">
-     Register As Patient
-          </Typography>
-          <Box
-   
-  >
-    <form className="text-center" onClick={handleLoginSubmit}>
-      {/* <Box className="appointment"> */}
+          <Typography variant="h5" gutterBottom component="div">Register As Patient</Typography>
+  <Box>
+       <form className="text-center" onClick={handleLoginSubmit}>
+  
         
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} sm={12}>
@@ -75,7 +71,7 @@ const PatientReg = () => {
               variant="standard" />
           </Grid>
         </Grid>
-      {/* </Box> */}
+    
       <Grid container spacing={2}>
           <Grid item xs={12} md={6} sm={12}>
           <TextField
@@ -115,8 +111,8 @@ const PatientReg = () => {
           </Grid>
         </Grid>
   
-    </form>
-    <Button
+       </form>
+          <Button
             sx={{ width: '30%', m: 3 }}
             varient="contained"
             type="submit"
@@ -124,7 +120,7 @@ const PatientReg = () => {
             backgroundColor: ' #e6ecf0',
             color: 'black'
             }}>Register</Button>
-  </Box>
+     </Box>
     
     <Link to='/login'><Button  sx={{ width: '50%', m: 1 }} color="inherit">Already have an account</Button></Link>
     </Container>
