@@ -116,6 +116,28 @@ const AddDoctor = () => {
             />
           </Grid>
           <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">Fees</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Set Fees"
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">Age</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Set Age"
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Designation</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
@@ -176,14 +198,6 @@ const AddDoctor = () => {
                 ))}
               </Select>
             </Box>
-            {/* <TextField
-              id="standard-basic"
-              label="Choose Degree"
-              variant="standard"
-              multiline
-              rows={5}
-              fullWidth
-            /> */}
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Salary</Typography>
@@ -197,7 +211,7 @@ const AddDoctor = () => {
             />
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Sex</Typography>
+            <Typography variant="OVERLINE TEXT">Gender</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <RadioGroup
@@ -220,7 +234,7 @@ const AddDoctor = () => {
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
               id="standard-basic"
-              label="Enter joining date"
+              label="Eg: 28-12-20"
               required
               fullWidth
             />
