@@ -16,7 +16,9 @@ const myData = [
     fee:'1000',
     age: '22',
     salary: '119609',
+    specialist:'Surgery',
     isActive: false,
+    time:'8pm-10pm',
     picture: "http://placehold.it/32x32",
     gender: "female",
     address: "409 Garden Street, Devon, Mississippi, 6319",
@@ -28,7 +30,9 @@ const myData = [
     fee:'1500',
     age: '28',
     salary: '118542',
+    specialist:'Radiology',
     isActive: false,
+    time:'9pm-11pm',
     picture: "http://placehold.it/32x32",
     gender: "male",
     address: "306 Glendale Court, Darlington, North Carolina, 3516",
@@ -40,7 +44,9 @@ const myData = [
     fee:'800',
     age: '40',
     salary: '109030',
+    specialist:'Anesthesiology',
     isActive: true,
+    time:'8am-10am',
     picture: "http://placehold.it/32x32",
     gender: "male",
     address: "179 Schenck Street, Kansas, Arkansas, 7340",
@@ -52,7 +58,9 @@ const myData = [
     fee:'1000',
     age: '21',
     salary: '65303',
+    specialist:'Anesthesiology',
     isActive: true,
+    time:'8pm-10pm',
     picture: "http://placehold.it/32x32",
     gender: "male",
     address: "409 Scott Avenue, Elrama, South Carolina, 1578",
@@ -64,7 +72,9 @@ const myData = [
     fee:'1000',
     age: '39',
     salary: '67097',
+    specialist:'Children',
     isActive: true,
+    time:'8pm-10pm',
     picture: "http://placehold.it/32x32",
     gender: "male",
     address: "966 Brightwater Court, Brenton, Virginia, 828",
@@ -76,7 +86,9 @@ const myData = [
     fee:'500',
     age: '20',
     salary: '54398',
+    specialist:'Women',
     isActive: true,
+    time:'8pm-10pm',
     picture: "http://placehold.it/32x32",
     gender: "male",
     address: "465 Gerald Court, Marne, Wyoming, 9714",
@@ -89,7 +101,9 @@ export default function PatientViewDoctor() {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Specialist</TableCell>
+            <TableCell align="center">Available</TableCell>
             <TableCell align="center">Fee</TableCell>
             <TableCell align="center">Phone</TableCell>
             <TableCell align="center">Gender</TableCell>
@@ -105,13 +119,18 @@ export default function PatientViewDoctor() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
+              <TableCell align="center">{row.specialist}</TableCell>
+              <TableCell align="center">{row.time}</TableCell>
               <TableCell align="center">{row.fee}</TableCell>
               <TableCell align="center">{row.phone}</TableCell>
               <TableCell align="center">{row.gender}</TableCell>
               <TableCell align="center">
                 <form name="button" action="javascript:select();">
                   <NavLink to="/appointment">
-                    <input
+                    <button
+                      // doctor = {row.name}
+                      // fee = {row.fee}
+                      // time = {row.time}
                       style={{
                         color: "#fff",
                         background: "#000",
