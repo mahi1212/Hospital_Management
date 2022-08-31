@@ -101,7 +101,7 @@ export default function PatientViewDoctor() {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Name</TableCell>
+            <TableCell align="center" style={{ padding:'20px 0'}}>Name</TableCell>
             <TableCell align="center">Specialist</TableCell>
             <TableCell align="center">Available</TableCell>
             <TableCell align="center">Fee</TableCell>
@@ -113,10 +113,11 @@ export default function PatientViewDoctor() {
         <TableBody>
           {myData.map((row) => (
             <TableRow
+              
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{borderRight:'1px solid #ccc'}}>
                 {row.name}
               </TableCell>
               <TableCell align="center">{row.specialist}</TableCell>
@@ -127,15 +128,15 @@ export default function PatientViewDoctor() {
               <TableCell align="center">
                 <form name="button" action="javascript:select();">
                   <NavLink to="/appointment">
-                    <button
-                      // doctor = {row.name}
-                      // fee = {row.fee}
-                      // time = {row.time}
+                    <input
                       style={{
                         color: "#fff",
                         background: "#000",
                         padding: "5px 10px",
                         cursor: "pointer",
+                        border:'none',
+                        borderRadius:'5px',
+                        backgroundColor:'#224B0C'
                       }}
                       id="edit"
                       type="submit"

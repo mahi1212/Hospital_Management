@@ -44,6 +44,7 @@ export default class Appointment extends Component {
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
                 <h4>Select Doctor</h4>
+                <h3>{this.props.doctor}</h3>
               </Grid>
               <Grid item xs={12} md={4}>
                 <Select
