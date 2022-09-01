@@ -1,57 +1,40 @@
-import React, { Component } from "react";
-import Select from "react-select";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import "./Appointment.css";
 import Calender from "../Shared/Calender/Calender";
 import Time from "../Shared/Time/Time";
-export default class Appointment extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectOptions: [],
-      id: "",
-      name: "",
-    };
-  }
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+const Appointment = () => {
+    //forms
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+    //params 
+    const { viewId } = useParams()
+    const [patient, setPatient] = useState([])
+    useEffect(() => {
+      fetch(`/patient.json/${viewId}`)
+          .then(res => res.json())
+          .then(data => setPatient(data))
+          .catch(error => (console.log(error)));
 
-  async getOptions() {
-    const res = await axios.get("./appointmentData.json");
-    const data = res.data;
-    const options = data.map((d) => ({
-      value: d.fee,
-      label: d.name,
-    }));
-    this.setState({ selectOptions: options });
-  }
-  handleChange(e) {
-    this.setState({ fee: e.value, name: e.label });
-  }
-  componentDidMount() {
-    this.getOptions();
-  }
-
-  render() {
+    }, [viewId])
     return (
-      <Box
+        <Box
         sx={{ background: "#fff", height:{md:'80vh', lg:'80vh', xs:'100%',sm:'100%'} }}
         style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}
       >
-        <form className="text-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="text-center">
           <Box className="appointment">
             <h3 style={{ padding: "1rem 0" }}>Take An Appointment</h3>
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
                 <h4>Select Doctor</h4>
-                <h3>{this.props.doctor}</h3>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Select
-                  style={{ width: "50%", textAlign: "center" }}
-                  options={this.state.selectOptions}
-                  onChange={this.handleChange.bind(this)}
-                />
+              <input  {...register("example")} value={patient.name}/>
+
               </Grid>
             </Grid>
             <Grid container spacing={2}>
@@ -59,9 +42,8 @@ export default class Appointment extends Component {
                 <h4>Consultency Fee</h4>
               </Grid>
               <Grid item xs={12} md={4}>
-                <div className="textA" style={{ textAlign: "center" }}>
-                  {this.state.fee}
-                </div>
+              <input  {...register("example")} value={patient.fee}/>
+
               </Grid>
             </Grid>
           </Box>
@@ -117,5 +99,6 @@ export default class Appointment extends Component {
         </form>
       </Box>
     );
-  }
-}
+};
+
+export default Appointment;
