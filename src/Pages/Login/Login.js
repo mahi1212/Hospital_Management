@@ -4,11 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Button, Card, TextField, Typography } from '@mui/material';
 import {Link} from 'react-router-dom'
-import Register from '../Register/Register';
 import GoogleIcon from '@mui/icons-material/Google';
-
-
-
 
 const Login = () => {
     const [loginData,setLoginData] = useState({})
