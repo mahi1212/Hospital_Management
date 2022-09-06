@@ -15,27 +15,30 @@ import AddDoctor from "./Pages/Doctors/AddDoctor/AddDoctor";
 import Registration from "./Pages/Login/Registration/Registration";
 import PatientViewDoctor from "./Pages/Doctors/Doctors/PatientViewDoctor";
 import Login from "./Pages/Login/Login";
+import AuthProvider from "./context/AuthProvider";
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          {/* NESTED ROUTING APPLIED */}
-          <Route path="/" element={<Dashboard />} >
-            <Route index element={<Home></Home>} />
-            <Route path="doctors" element={<PatientViewDoctor />} />
-            <Route path="addDoctor" element={<AddDoctor />} />
-            <Route path="patients" element={<Patients />} />
-            <Route path="staffs" element={<Staffs />} />
-            <Route path="appointment" element={<Appointment />} />
-            <Route path="login" element={<Login />} />
-           <Route path="registration" element={<Registration />} />
-          </Route>
-        </Routes>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            {/* NESTED ROUTING APPLIED */}
+            <Route path="/" element={<Dashboard />} >
+              <Route index element={<Home></Home>} />
+              <Route path="doctors" element={<PatientViewDoctor />} />
+              <Route path="addDoctor" element={<AddDoctor />} />
+              <Route path="patients" element={<Patients />} />
+              <Route path="staffs" element={<Staffs />} />
+              <Route path="appointment" element={<Appointment />} />
+              <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
+            </Route>
+          </Routes>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

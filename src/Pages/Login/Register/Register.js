@@ -8,8 +8,6 @@ import DoctorReg from '../DoctorReg/DoctorReg';
 import AdminReg from '../AdminReg/AdminReg';
 import PatientReg from '../PatientReg/PatientReg';
 import { Card, Container } from '@mui/material';
-import CardContent from '@mui/material/CardContent';
-
 
 function TabPanel(props) {
   

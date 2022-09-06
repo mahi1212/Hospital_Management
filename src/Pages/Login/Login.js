@@ -5,8 +5,12 @@ import Container from '@mui/material/Container';
 import { Button, Card, TextField, Typography } from '@mui/material';
 import {Link} from 'react-router-dom'
 import GoogleIcon from '@mui/icons-material/Google';
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+  // Adding google sign-in system
+    const {user, signInWithGoogle, logOut} = useAuth();
+
     const [loginData,setLoginData] = useState({})
     const handleOnChange = e => {
       const feild = e.target.name;
@@ -73,15 +77,17 @@ const Login = () => {
             sx={{ width: '50%', m: 1 }}
             varient="contained"
             type="submit"
+            onClick={signInWithGoogle}
             style={{
-            // backgroundColor: '#e6ecf0',
-            // color: '#EA4335'
             color: 'linear-gradient(to right bottom,(2, 89, 87, 0),(234, 67, 53))'
             }}
             ></GoogleIcon>
-
-
-       <Link to='/registration'><Button  sx={{ width: '50%', m: 1 }} >For the First time</Button></Link>
+            <br />
+            { user.email && <button onClick={logOut}>Logout</button>}
+            <br />
+            {user.email && <span>Logged in as : {user.displayName}</span>}
+            <br />
+        <Link to='/registration'><Button  sx={{ width: '50%', m: 1 }} >For the First time</Button></Link>
           </form>
         </Grid>
       
