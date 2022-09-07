@@ -16,6 +16,7 @@ import Registration from "./Pages/Login/Registration/Registration";
 import PatientViewDoctor from "./Pages/Doctors/Doctors/PatientViewDoctor";
 import Login from "./Pages/Login/Login";
 import AuthProvider from "./context/AuthProvider";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
               <Route path="staffs" element={<Staffs />} />
               <Route path="appointment" element={<Appointment />} />
               <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} />
+              <Route path="registration" element={<Registration />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
           <Footer></Footer>
