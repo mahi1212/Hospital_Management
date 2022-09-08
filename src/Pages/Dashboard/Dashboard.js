@@ -257,7 +257,6 @@ export default function NewHeader() {
                 <DrawerHeader />
                 <Container maxWidth='lg'>
                     <Outlet />
-
                 </Container>
             </Main>
         </Box>
