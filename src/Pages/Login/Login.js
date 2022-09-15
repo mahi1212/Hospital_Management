@@ -46,7 +46,7 @@ const Login = () => {
           <form onClick={handleLoginSubmit}>
           <TextField
               sx={{width:'50%',m:1}}
-              id="standard-basic"
+              id="standard-basic-1"
               label="Your mail"
               name='email'
               onChange={handleOnChange}
@@ -85,7 +85,7 @@ const Login = () => {
             <br />
             {user.email && <span>Logged in as : {user.displayName}</span>}
             <br />
-            {error}
+            {/* {error} */}
         <Link to='/registration'><Button  sx={{ width: '50%', m: 1 }} >For the First time</Button></Link>
           </form>
         </Grid>

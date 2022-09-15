@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 // const myData = [
 //   {
@@ -104,13 +105,16 @@ import { NavLink } from "react-router-dom";
 export default function PatientViewDoctor() {
   const [data, setData] = React.useState([]);
   React.useEffect(()=>{
-    fetch('./doctorDetails.json')
+    fetch('http://localhost:5000/doctors')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
 
   return (
     <TableContainer component={Paper}>
+      {
+        <Typography variant="h6" sx={{my:3}}>Total available doctors: {data.length}</Typography>
+      }
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -124,23 +128,23 @@ export default function PatientViewDoctor() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
+          {data.map((doctorData) => (
             <TableRow
               
-              key={row.name}
+              key={doctorData.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row" style={{borderRight:'1px solid #ccc'}}>
-                {row.name}
+                {doctorData.name}
               </TableCell>
-              <TableCell align="center">{row.specialist}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
-              <TableCell align="center">{row.fee}</TableCell>
-              <TableCell align="center">{row.phone}</TableCell>
-              <TableCell align="center">{row.gender}</TableCell>
+              <TableCell align="center">{doctorData.specialist}</TableCell>
+              <TableCell align="center">{doctorData.time}</TableCell>
+              <TableCell align="center">{doctorData.fee}</TableCell>
+              <TableCell align="center">{doctorData.phone}</TableCell>
+              <TableCell align="center">{doctorData.gender}</TableCell>
               <TableCell align="center">
-                <form name="button" action="javascript:select();">
-                  <NavLink to={`/appointment/${row.id}`}>
+                <form name="button">
+                  <NavLink to={`/appointment/${doctorData.email}`}>
                     <input
                       style={{
                         color: "#fff",

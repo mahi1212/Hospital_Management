@@ -7,10 +7,10 @@ import Time from "../Shared/Time/Time";
 import { useParams } from "react-router-dom";
 
 const Appointment = () => {
-  const {doctorId} = useParams();
+  const {email} = useParams();
   const [doctorInfo, setDoctorInfo] = useState([])
   useEffect(()=>{
-    fetch(`./doctorDetails.json/${doctorId}`)
+    fetch(`http://localhost:5000/doctors/${email}`)
     .then(res => res.json())
     .then(data => setDoctorInfo(data))
   }, [])
@@ -19,6 +19,7 @@ const Appointment = () => {
         sx={{ background: "#fff", height:{md:'80vh', lg:'80vh', xs:'100%',sm:'100%'} }}
         style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}
       >
+        {email}
         <form className="text-center">
           <Box className="appointment">
             <h3 style={{ padding: "1rem 0" }}>Take An Appointment</h3>

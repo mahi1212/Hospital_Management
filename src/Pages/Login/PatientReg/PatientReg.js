@@ -75,7 +75,7 @@ const PatientReg = () => {
               <Grid item xs={12} md={6}>
                 <TextField
                   sx={{ width: "70%", m: 1 }}
-                  id="standard-basic"
+                  id="standard-basic-1"
                   label="Your phone"
                   name="email"
                   onChange={handleOnChange}
@@ -113,7 +113,7 @@ const PatientReg = () => {
                 <Gender></Gender>
               </Grid>
               <Grid item xs={12} md={6}>
-                <div>{ error }</div>
+                {/* <div>{ error }</div> */}
               </Grid>
             </Grid>
             <Button

@@ -11,7 +11,9 @@ import {
   Select,
   MenuItem,
   OutlinedInput,
+  Fab,
 } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
@@ -82,6 +84,7 @@ const AddDoctor = () => {
             textAlign: "start",
           }}
         >
+          {/* Add Name */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Name</Typography>
           </Grid>
@@ -93,6 +96,7 @@ const AddDoctor = () => {
               fullWidth
             />
           </Grid>
+          {/* Email */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Email</Typography>
           </Grid>
@@ -104,6 +108,7 @@ const AddDoctor = () => {
               fullWidth
             />
           </Grid>
+          {/* Phone */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Phone</Typography>
           </Grid>
@@ -115,6 +120,7 @@ const AddDoctor = () => {
               fullWidth
             />
           </Grid>
+          {/* Fees */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Fees</Typography>
           </Grid>
@@ -126,28 +132,26 @@ const AddDoctor = () => {
               fullWidth
             />
           </Grid>
+          {/* Age */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Age</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Set Age"
-              required
-              fullWidth
-            />
+            <TextField id="standard-basic" label="Set Age" required fullWidth />
           </Grid>
+          {/* Specialist */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Designation</Typography>
+            <Typography variant="OVERLINE TEXT">Specialist</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
               id="standard-basic"
-              label="Designation"
+              label="Speciality"
               required
               fullWidth
             />
           </Grid>
+          {/* Address */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Address</Typography>
           </Grid>
@@ -161,6 +165,7 @@ const AddDoctor = () => {
               fullWidth
             />
           </Grid>
+          {/* Degrees */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Choose Degrees</Typography>
           </Grid>
@@ -199,6 +204,7 @@ const AddDoctor = () => {
               </Select>
             </Box>
           </Grid>
+          {/* Salary */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Salary</Typography>
           </Grid>
@@ -206,6 +212,30 @@ const AddDoctor = () => {
             <TextField
               id="standard-basic"
               label="Enter salary"
+              required
+              fullWidth
+            />
+          </Grid>
+          {/* available date */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">Available Time</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Eg: 8pm-10pm"
+              required
+              fullWidth
+            />
+          </Grid>
+          {/* Joining date */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">Date Of Joining</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Eg: 28-12-20"
               required
               fullWidth
             />
@@ -229,15 +259,12 @@ const AddDoctor = () => {
             </RadioGroup>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Date of joining</Typography>
+            <Typography variant="OVERLINE TEXT">Add Image</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Eg: 28-12-20"
-              required
-              fullWidth
-            />
+            <Fab color="primary" aria-label="add">
+              <AddIcon />
+            </Fab>
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Decision</Typography>
