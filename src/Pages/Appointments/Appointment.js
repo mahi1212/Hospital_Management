@@ -17,11 +17,11 @@ const Appointment = () => {
   // const {name} = doctorInfo;
   return (
     <Box
-        sx={{ background: "#fff", height:{md:'80%', lg:'80%', xs:'100%',sm:'100%'} }}
+        sx={{ background: "#fff", height:{md:'80vh', lg:'80vh', xs:'100%',sm:'100%'},}}
         style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}
       >
-        <form className="text-center">
-          <Box className="appointment">
+        <form className="text-center" >
+          <Box className="appointment" sx={{ paddingTop:{md:'5rem', lg:'5rem'}}}>
             <h3 style={{ padding: "1rem 0" }}>Take An Appointment</h3>
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
