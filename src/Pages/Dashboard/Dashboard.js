@@ -219,7 +219,7 @@ export default function NewHeader() {
                         </ListItem>
                     </NavLink>}
                     {/* Time and date selection */}
-                    <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    {/* <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                 <ListItemIcon>
@@ -228,7 +228,7 @@ export default function NewHeader() {
                                 <ListItemText primary="Appointment" />
                             </ListItemButton>
                         </ListItem>
-                    </NavLink>
+                    </NavLink> */}
 
                     <NavLink to="/Staffs" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
