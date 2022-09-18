@@ -148,13 +148,14 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
+                    {/* Doctor view for admin */}
                     <ListItem disablePadding>
-                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
-                                <ListItemIcon>
-                                    <FaUserNurse style={{ color: '#000', fontSize: '1.5rem', marginRight:'1rem' }} />
-                                </ListItemIcon>
-                            </ListItemButton>
-                        </ListItem>
+                        <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                            <ListItemIcon>
+                                <FaUserNurse style={{ color: '#000', fontSize: '1.5rem', marginRight:'1rem' }} />
+                            </ListItemIcon>
+                        </ListItemButton>
+                    </ListItem>
                     <TreeView
                         style={{
                             color: '#000', background: '#fff',
@@ -208,16 +209,55 @@ export default function NewHeader() {
                         </ListItem>
                     </NavLink> */}
 
-                    {<NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
-                        <ListItem disablePadding>
-                            <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
-                                <ListItemIcon>
-                                    <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Patients" />
-                            </ListItemButton>
-                        </ListItem>
-                    </NavLink>}
+                    {/* Patient for Admin view  */}
+                    <ListItem disablePadding>
+                        <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                            <ListItemIcon>
+                                <TbBed style={{ color: '#000', fontSize: '1.5rem' }} />
+                            </ListItemIcon>
+                        </ListItemButton>
+                    </ListItem>
+                    <TreeView
+                        style={{
+                            color: '#000', background: '#fff',
+                            textAlign: 'justify', paddingLeft:'2.5rem',
+                            marginTop:'-2.4rem',
+                        }}
+                        aria-label="file system navigator"
+                        defaultExpanded={['1']}
+                        defaultCollapseIcon={
+                            <div style={{ padding: '.3rem 0', visibility:'hidden'}}>
+                                <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
+                            </div>}
+                        defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility:'hidden' }}>
+                            <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
+                        </div>}
+                        sx={{ height: 140, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                    >
+                        <TreeItem nodeId="1" label="Patient"
+                            style={{ color: '#000', background: '#FFFFFF' }}>
+                            <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                                        <ListItemIcon>
+                                            <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Patient List" style={{marginLeft:'-1rem'}}/>
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to="/patients" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                                        <ListItemIcon>
+                                            <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.4rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Add Patient" style={{marginLeft:'-1rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                        </TreeItem>
+                    </TreeView>
                     {/* Time and date selection */}
                     {/* <NavLink to="/appointment" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
