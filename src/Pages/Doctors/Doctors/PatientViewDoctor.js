@@ -155,7 +155,7 @@ export default function PatientViewDoctor() {
                         borderRadius:'5px',
                         backgroundColor:'#224B0C'
                       }}
-                      id="edit"
+                      id="submit"
                       type="submit"
                       name="appointment"
                       value="Appointment"

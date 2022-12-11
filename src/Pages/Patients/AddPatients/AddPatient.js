@@ -17,7 +17,6 @@ import AddIcon from '@mui/icons-material/Add';
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import { CalendarMonth } from "@mui/icons-material";
 import Calender from "../../Shared/Calender/Calender";
 
 const ITEM_HEIGHT = 48;
@@ -32,6 +31,7 @@ const MenuProps = {
 };
 
 const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
+const packages = ["24 HOURS", "MORE THAN 2 DAYS", "10 DAYS OR MORE"];
 
 function getStyles(name, personName, theme) {
   return {
@@ -42,7 +42,7 @@ function getStyles(name, personName, theme) {
   };
 }
 
-const AddDoctor = () => {
+const AddPatient = () => {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -55,20 +55,6 @@ const AddDoctor = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const specialist = formData.get("specialist");
-    const fee = formData.get("fee");
-    const age = formData.get("age");
-    const salary = formData.get("salary");
-    const image = formData.get("image");
-
-    console.log(name, email, phone, specialist, fee, age, salary, image);
-  };
   return (
     <Box
       style={{
@@ -77,8 +63,8 @@ const AddDoctor = () => {
         background: "#fff",
       }}
     >
-      <Box style={{ display: "flex" }}>
-        <Button variant="contained">
+      <Box style={{ display: "flex", }}>
+        <Button variant="contained" sx={{ fontWeight: 700, }}>
           <NavLink
             to="/doctors"
             style={{ textDecoration: "none", width: "100%", color: "#fff" }}
@@ -86,9 +72,17 @@ const AddDoctor = () => {
             Doctors List
           </NavLink>
         </Button>
+        <Button variant="contained" sx={{ ml: 2, fontWeight: 700, }} color="warning">
+          <NavLink
+            to="/packages"
+            style={{ textDecoration: "none", width: "100%", color: "#fff" }}
+          >
+            Our Packages
+          </NavLink>
+        </Button>
       </Box>
       <hr></hr>
-      <form onSubmit={handleSubmit}>
+      <form>
         <Grid
           container
           spacing={2}
@@ -102,94 +96,47 @@ const AddDoctor = () => {
         >
           {/* Add Name */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Name</Typography>
+            <Typography variant="OVERLINE TEXT">PATIENT NAME</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
               id="standard-basic"
-              label="Enter name"
-              name="name"
-              required
-              fullWidth
-            />
-          </Grid>
-          {/* Email */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Email</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Enter email"
-              name="email"
+              label="Enter name of patient"
               required
               fullWidth
             />
           </Grid>
           {/* Phone */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Phone</Typography>
+            <Typography variant="OVERLINE TEXT">PHONE</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
               id="standard-basic"
-              label="Enter number"
-              name="phone"
-              required
-              fullWidth
-            />
-          </Grid>
-          {/* Fees */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Fees</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Set Fees"
-              name="fee"
+              label="Enter phone number"
               required
               fullWidth
             />
           </Grid>
           {/* Age */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Age</Typography>
+            <Typography variant="OVERLINE TEXT">AGE</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField id="standard-basic" label="Set Age" name="age" required fullWidth />
+            <TextField id="standard-basic" label="Enter Age" required fullWidth />
           </Grid>
-          {/* Specialist */}
+          {/* weight */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Specialist</Typography>
+            <Typography variant="OVERLINE TEXT">WEIGHT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Speciality"
-              name="specialist"
-              required
-              fullWidth
-            />
+            <TextField id="standard-basic" label="Enter Age" required fullWidth />
           </Grid>
-          {/* Address */}
+
+          {/* PREPSCRIPTION, TEST REPORT,  */}
+          {/* Select Doctor */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Address</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Enter Address"
-              variant="standard"
-              name="address"
-              multiline
-              rows={5}
-              fullWidth
-            />
-          </Grid>
-          {/* Degrees */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Choose Degrees</Typography>
+            <Typography variant="OVERLINE TEXT">SELECT DOCTOR</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Box>
@@ -197,6 +144,7 @@ const AddDoctor = () => {
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"
                 multiple
+                label="SELECT"
                 value={personName}
                 onChange={handleChange}
                 variant="standard"
@@ -211,9 +159,6 @@ const AddDoctor = () => {
                 )}
                 MenuProps={MenuProps}
               >
-                <MenuItem disabled value="">
-                  <em>You Can Choose Multiple Degrees </em>
-                </MenuItem>
                 {names.map((name) => (
                   <MenuItem
                     key={name}
@@ -226,61 +171,93 @@ const AddDoctor = () => {
               </Select>
             </Box>
           </Grid>
-          {/* Salary */}
+          {/* Appointment date */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Salary</Typography>
+            <Typography variant="OVERLINE TEXT">SELECT DATE</Typography>
           </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Enter salary"
-              name="salary"
-              required
-              fullWidth
-            />
-          </Grid>
-          {/* available date */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Available Time</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField
-              id="standard-basic"
-              label="Eg: 8pm-10pm"
-              name="time"
-              required
-              fullWidth
-            />
-          </Grid>
-          {/* Joining date */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Date Of Joining</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-6.5rem" } }}>
-            {/* <TextField
-              id="standard-basic"
-              label="Eg: 28-12-20"
-              name="salary"
-              required
-              fullWidth
-            /> */}
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-6.5rem" }, display: 'flex', width:'100%' }}>
             <Calender />
+            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center'}}>
+              <Typography variant="OVERLINE TEXT">PACKAGE</Typography>
+              <Select
+                labelId="demo-multiple-chip-label"
+                id="demo-multiple-chip"
+                multiple
+                value={personName}
+                onChange={handleChange}
+                variant="standard"
+                fullWidth
+                sx={{ml: 1}}
+                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {packages.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, personName, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Box>
+
           </Grid>
+          {/* Address */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Gender</Typography>
+            <Typography variant="OVERLINE TEXT">ADDRESS</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Enter your address"
+              variant="standard"
+              multiline
+              rows={3}
+              fullWidth
+              />
+          </Grid>
+          {/* Medical History */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">MEDICAL HISTORY</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <TextField
+              id="standard-basic"
+              label="Describe Medical History & Symptopms"
+              variant="standard"
+              multiline
+              rows={3}
+              fullWidth
+            />
+          </Grid>
+          {/* Medical History */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">TEST REPORT</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+                <input type="file" />
+          </Grid>
+          {/* gender */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">GENDER</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <RadioGroup
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
-              name="gender"
+              name="row-radio-buttons-group"
               required
             >
-              <FormControlLabel
-                value="male"
-                control={<Radio />}
-                label="Male" />
-
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
               <FormControlLabel
                 value="female"
                 control={<Radio />}
@@ -288,30 +265,18 @@ const AddDoctor = () => {
               />
             </RadioGroup>
           </Grid>
-          {/* add image */}
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Add Image</Typography>
+            <Typography variant="OVERLINE TEXT">ADD PREPSCRIPTION</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <Fab color="primary" aria-label="add">
-              <input type="file" name="image" alt="image-upload" style={{
-                // position: "absolute",
-                // top: 0,
-                // left: 0,
-                opacity: 0,
-                cursor: "pointer",
-                zIndex: 1,
-                height: '55px',
-              }} />
-              <AddIcon style={{
-                position: "absolute",
-                top: 15,
-                left: 17,
-              }} />
+            <Fab color="primary" aria-label="PREPSCRIPTION">
+              <AddIcon />
             </Fab>
           </Grid>
+          {/*  */}
+          
           <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">Decision</Typography>
+            <Typography variant="OVERLINE TEXT">DECISION</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Box sx={{ display: "flex", margin: "1rem 0" }}>
@@ -338,4 +303,4 @@ const AddDoctor = () => {
   );
 };
 
-export default AddDoctor;
+export default AddPatient;
