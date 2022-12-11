@@ -61,13 +61,17 @@ const AddDoctor = () => {
     const name = formData.get("name");
     const email = formData.get("email");
     const phone = formData.get("phone");
-    const specialist = formData.get("specialist");
     const fee = formData.get("fee");
     const age = formData.get("age");
+    const specialist = formData.get("specialist");
+    const address = formData.get("address");
     const salary = formData.get("salary");
-    const image = formData.get("image");
+    const time = formData.get("time");
+    const doj = formData.get("doj");
+    const gender = formData.get("gender")
+    const picture = formData.get("image");
 
-    console.log(name, email, phone, specialist, fee, age, salary, image);
+    console.log(name, email, phone,fee, age,specialist,address, salary, time, doj, gender, picture);
   };
   return (
     <Box
@@ -235,7 +239,7 @@ const AddDoctor = () => {
               id="standard-basic"
               label="Enter salary"
               name="salary"
-              required
+              // required
               fullWidth
             />
           </Grid>
@@ -264,7 +268,7 @@ const AddDoctor = () => {
               required
               fullWidth
             /> */}
-            <Calender />
+            <Calender name="doj"/>
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Gender</Typography>
