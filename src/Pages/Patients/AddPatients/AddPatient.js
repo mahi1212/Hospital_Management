@@ -44,7 +44,6 @@ function getStyles(name, personName, theme) {
 }
 
 const AddPatient = () => {
-  const url = window.location.toString();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -67,6 +66,14 @@ const AddPatient = () => {
       console.log("cancelled");
     }
   };
+
+  // form data submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    
+  };
+
   return (
     <Box
       style={{
@@ -98,7 +105,7 @@ const AddPatient = () => {
         </Button>
       </Box>
       <hr></hr>
-      <form ref={form}>
+      <form ref={form} onSubmit={handleSubmit}>
         <Grid
           container
           spacing={2}
@@ -120,6 +127,7 @@ const AddPatient = () => {
               label="Enter name of patient"
               required
               fullWidth
+              name="name"
             />
           </Grid>
           {/* Phone */}
@@ -132,6 +140,7 @@ const AddPatient = () => {
               label="Enter phone number"
               required
               fullWidth
+              name="phone"
             />
           </Grid>
           {/* Age */}
@@ -144,6 +153,7 @@ const AddPatient = () => {
               label="Enter Age"
               required
               fullWidth
+              name="age"
             />
           </Grid>
           {/* weight */}
@@ -156,6 +166,7 @@ const AddPatient = () => {
               label="Enter Age"
               required
               fullWidth
+              name="weight"
             />
           </Grid>
 
@@ -191,6 +202,7 @@ const AddPatient = () => {
                 onChange={handleChange}
                 variant="standard"
                 fullWidth
+                name="package"
                 sx={{ ml: 1 }}
                 input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                 renderValue={(selected) => (
@@ -226,6 +238,7 @@ const AddPatient = () => {
               multiline
               rows={3}
               fullWidth
+              name="address"
             />
           </Grid>
           {/* Medical History */}
@@ -240,6 +253,7 @@ const AddPatient = () => {
               multiline
               rows={3}
               fullWidth
+              name="medicalHistory"
             />
           </Grid>
           {/* Medical History */}
@@ -247,7 +261,7 @@ const AddPatient = () => {
             <Typography variant="OVERLINE TEXT">TEST REPORT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <input type="file" />
+            <input type="file" name="report" />
           </Grid>
           {/* gender */}
           <Grid item xs={12} md={4}>
@@ -285,9 +299,18 @@ const AddPatient = () => {
               <Button variant="contained" color="error" onClick={handleReset}>
                 RESET
               </Button>
-              <Button variant="contained" color="success" sx={{ ml: 2 }} 
+              <Button variant="contained" color="success" sx={{ ml: 2 }} type="submit" 
                 onClick={() => {
-                  window.location = url.replace('/addPatient/', '/appointment/');
+                  const submitText = 'Are you sure you want to submit?';
+                  // if(!window.confirm) return;
+                  if(window.confirm(submitText)){
+                    const url = window.location.toString();
+                    window.location = url.replace('/addPatient/', '/appointment/');
+                  }
+                  else{
+                    console.log('cancel');
+                  }
+                  
                 }}
               >
                 SUBMIT
