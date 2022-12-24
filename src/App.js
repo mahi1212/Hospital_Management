@@ -32,7 +32,9 @@ function App() {
               <Route path="doctors" element={<PatientViewDoctor />} />
               <Route path="addDoctor" element={<AddDoctor />} />
               <Route path="patients" element={<Patients />} />
-              <Route path="addPatient" element={<AddPatient />} />
+              <Route path="addPatient" element={<AddPatient />}>
+                <Route path=":email" element={<AddPatient />} />
+              </Route>
               <Route path="staffs" element={<Staffs />} />
               <Route path="appointment" element={<Appointment />}>
                 <Route path=":email" element={<Appointment />} />

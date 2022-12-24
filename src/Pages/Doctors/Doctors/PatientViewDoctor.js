@@ -144,7 +144,7 @@ export default function PatientViewDoctor() {
               <TableCell align="center">{doctorData.gender}</TableCell>
               <TableCell align="center">
                 <form name="button">
-                  <NavLink to={`/appointment/${doctorData.email}`}>
+                  <NavLink to={`/addPatient/${doctorData.email}`}>
                     <input
                       style={{
                         color: "#fff",

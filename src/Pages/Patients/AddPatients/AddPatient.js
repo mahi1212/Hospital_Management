@@ -13,11 +13,12 @@ import {
   OutlinedInput,
   Fab,
 } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import React from "react";
+import AddIcon from "@mui/icons-material/Add";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import Calender from "../../Shared/Calender/Calender";
+import { Email } from "@mui/icons-material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -43,6 +44,7 @@ function getStyles(name, personName, theme) {
 }
 
 const AddPatient = () => {
+  const url = window.location.toString();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -55,6 +57,16 @@ const AddPatient = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  // reset form if confirmed
+  const form = useRef(null);
+  const handleReset = () => {
+    let text = "Are you sure you want to reset?";
+    if (window.confirm(text) == true) {
+      form.current.reset();
+    } else {
+      console.log("cancelled");
+    }
+  };
   return (
     <Box
       style={{
@@ -63,8 +75,8 @@ const AddPatient = () => {
         background: "#fff",
       }}
     >
-      <Box style={{ display: "flex", }}>
-        <Button variant="contained" sx={{ fontWeight: 700, }}>
+      <Box style={{ display: "flex" }}>
+        <Button variant="contained" sx={{ fontWeight: 700 }}>
           <NavLink
             to="/doctors"
             style={{ textDecoration: "none", width: "100%", color: "#fff" }}
@@ -72,7 +84,11 @@ const AddPatient = () => {
             Doctors List
           </NavLink>
         </Button>
-        <Button variant="contained" sx={{ ml: 2, fontWeight: 700, }} color="warning">
+        <Button
+          variant="contained"
+          sx={{ ml: 2, fontWeight: 700 }}
+          color="warning"
+        >
           <NavLink
             to="/packages"
             style={{ textDecoration: "none", width: "100%", color: "#fff" }}
@@ -82,7 +98,7 @@ const AddPatient = () => {
         </Button>
       </Box>
       <hr></hr>
-      <form>
+      <form ref={form}>
         <Grid
           container
           spacing={2}
@@ -123,61 +139,49 @@ const AddPatient = () => {
             <Typography variant="OVERLINE TEXT">AGE</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField id="standard-basic" label="Enter Age" required fullWidth />
+            <TextField
+              id="standard-basic"
+              label="Enter Age"
+              required
+              fullWidth
+            />
           </Grid>
           {/* weight */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">WEIGHT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField id="standard-basic" label="Enter Age" required fullWidth />
+            <TextField
+              id="standard-basic"
+              label="Enter Age"
+              required
+              fullWidth
+            />
           </Grid>
 
-          {/* PREPSCRIPTION, TEST REPORT,  */}
-          {/* Select Doctor */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="OVERLINE TEXT">SELECT DOCTOR</Typography>
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <Box>
-              <Select
-                labelId="demo-multiple-chip-label"
-                id="demo-multiple-chip"
-                multiple
-                label="SELECT"
-                value={personName}
-                onChange={handleChange}
-                variant="standard"
-                fullWidth
-                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                renderValue={(selected) => (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-                MenuProps={MenuProps}
-              >
-                {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, personName, theme)}
-                  >
-                    {name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Box>
-          </Grid>
           {/* Appointment date */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">SELECT DATE</Typography>
           </Grid>
-          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-6.5rem" }, display: 'flex', width:'100%' }}>
+          <Grid
+            item
+            xs={12}
+            md={8}
+            sx={{
+              marginLeft: { md: "-6.5rem" },
+              display: "flex",
+              width: "100%",
+            }}
+          >
             <Calender />
-            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center'}}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
               <Typography variant="OVERLINE TEXT">PACKAGE</Typography>
               <Select
                 labelId="demo-multiple-chip-label"
@@ -187,7 +191,7 @@ const AddPatient = () => {
                 onChange={handleChange}
                 variant="standard"
                 fullWidth
-                sx={{ml: 1}}
+                sx={{ ml: 1 }}
                 input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                 renderValue={(selected) => (
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
@@ -209,7 +213,6 @@ const AddPatient = () => {
                 ))}
               </Select>
             </Box>
-
           </Grid>
           {/* Address */}
           <Grid item xs={12} md={4}>
@@ -223,7 +226,7 @@ const AddPatient = () => {
               multiline
               rows={3}
               fullWidth
-              />
+            />
           </Grid>
           {/* Medical History */}
           <Grid item xs={12} md={4}>
@@ -244,7 +247,7 @@ const AddPatient = () => {
             <Typography variant="OVERLINE TEXT">TEST REPORT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-                <input type="file" />
+            <input type="file" />
           </Grid>
           {/* gender */}
           <Grid item xs={12} md={4}>
@@ -266,6 +269,7 @@ const AddPatient = () => {
             </RadioGroup>
           </Grid>
           <Grid item xs={12} md={4}>
+            {/* PREPSCRIPTION, TEST REPORT,  */}
             <Typography variant="OVERLINE TEXT">ADD PREPSCRIPTION</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
@@ -273,27 +277,20 @@ const AddPatient = () => {
               <AddIcon />
             </Fab>
           </Grid>
-          {/*  */}
-          
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">DECISION</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Box sx={{ display: "flex", margin: "1rem 0" }}>
-              <Button variant="outlined" color="error" type="reset">
+              <Button variant="contained" color="error" onClick={handleReset}>
                 RESET
               </Button>
-              <Chip
-                label="OR"
-                color="secondary"
-                style={{
-                  marginLeft: "-.8rem",
-                  marginRight: "-.8rem",
-                  marginTop: ".1rem",
+              <Button variant="contained" color="success" sx={{ ml: 2 }} 
+                onClick={() => {
+                  window.location = url.replace('/addPatient/', '/appointment/');
                 }}
-              />
-              <Button variant="outlined" color="success" type="submit">
-                SAVE
+              >
+                SUBMIT
               </Button>
             </Box>
           </Grid>
