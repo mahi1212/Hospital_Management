@@ -50,8 +50,8 @@ const Appointment = () => {
         style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}
       >
         <form onSubmit={handleSubmit} className="text-center" >
-          <Box className="appointment" sx={{ paddingTop:{md:'5rem', lg:'5rem'}}}>
-            <Typography variant="h6" style={{ padding: "2rem 0", marginTop: "-1rem" }}>CONFIRMING DOCTOR APPOINMENT</Typography>
+          <Box className="appointment" sx={{ paddingTop:{md:'5rem', lg:'5rem'} }}>
+            <Typography variant="h6" style={{ padding: "2rem 0", marginTop: "-1rem" }}>DOCTOR APPOINMENT CHOOSEN </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} md={4}>
                 <Typography variant="h6">Selected Doctor</Typography>
@@ -79,9 +79,8 @@ const Appointment = () => {
             </Grid>
           </Grid>
           <hr style={{marginTop:"2rem", width:'80%'}}/>
-          <Box style={{display:'flex'}} sx={{ml:{md:'8rem', xs:'2rem'}}}>
+          {/* <Box style={{display:'flex'}} sx={{ml:{md:'8rem', xs:'2rem'}}}>
             <input
-
               style={{
                 background: "green",
                 color: "#FAF5FA ",
@@ -96,7 +95,7 @@ const Appointment = () => {
               }}
               type="submit"
             />
-          </Box>
+          </Box> */}
         </form>
       </Box>
   )

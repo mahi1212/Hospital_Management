@@ -19,6 +19,7 @@ import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import Calender from "../../Shared/Calender/Calender";
 import { Email } from "@mui/icons-material";
+import { useState } from "react";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,10 +35,10 @@ const MenuProps = {
 const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
 const packages = ["24 HOURS", "MORE THAN 2 DAYS", "10 DAYS OR MORE"];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, packageName, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      packageName.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -45,13 +46,30 @@ function getStyles(name, personName, theme) {
 
 const AddPatient = () => {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [packageName, setpackageName] = React.useState([]);
+  const [value, setValue] = React.useState(new Date().toDateString());// take only date not time
+  
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState(null);
+
+  const types = ['application/pdf', 'text/plain'];
+
+  const changeHandler = (event) => {
+    let selected = event.target.files[0];
+
+    if (selected && types.includes(selected.type)) {
+      setFile(selected);
+      setError('');
+    } else {
+      setFile(null);
+    }
+  };
 
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    setpackageName(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
@@ -66,12 +84,32 @@ const AddPatient = () => {
       console.log("cancelled");
     }
   };
-
+  // get email from url
+  const url = window.location.href;
+  const email = url.substring(url.lastIndexOf("/") + 1);
   // form data submit
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const age = formData.get("age");
+    const weight = formData.get("weight");
+    const SelectedPackage = packageName;
+    const address = formData.get("address");
+    const medicalHistory = formData.get("medicalHistory");
+
+    console.log(
+      name,
+      phone,
+      age,
+      weight,
+      SelectedPackage,
+      address,
+      medicalHistory,
+      email,
+      value
+    );
   };
 
   return (
@@ -91,6 +129,7 @@ const AddPatient = () => {
             Doctors List
           </NavLink>
         </Button>
+        {/* Package button */}
         <Button
           variant="contained"
           sx={{ ml: 2, fontWeight: 700 }}
@@ -101,6 +140,19 @@ const AddPatient = () => {
             style={{ textDecoration: "none", width: "100%", color: "#fff" }}
           >
             Our Packages
+          </NavLink>
+        </Button>
+        {/* selected doctor info button */}
+        <Button
+          variant="contained"
+          sx={{ ml: 2, fontWeight: 700 }}
+          color="success"
+        >
+          <NavLink
+            to={`/appointment/${email}`}
+            style={{ textDecoration: "none", width: "100%", color: "#fff" }}
+          >
+            Selected Doctor Info
           </NavLink>
         </Button>
       </Box>
@@ -163,8 +215,8 @@ const AddPatient = () => {
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
               id="standard-basic"
-              label="Enter Age"
-              required
+              label="Enter Weight"
+              // required
               fullWidth
               name="weight"
             />
@@ -184,8 +236,8 @@ const AddPatient = () => {
               width: "100%",
             }}
           >
-            <Calender />
-            <Box
+            <Calender value={value} setValue={setValue} />
+            {/* <Box
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -198,7 +250,7 @@ const AddPatient = () => {
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"
                 multiple
-                value={personName}
+                value={packageName}
                 onChange={handleChange}
                 variant="standard"
                 fullWidth
@@ -218,13 +270,13 @@ const AddPatient = () => {
                   <MenuItem
                     key={name}
                     value={name}
-                    style={getStyles(name, personName, theme)}
+                    style={getStyles(name, packageName, theme)}
                   >
                     {name}
                   </MenuItem>
                 ))}
               </Select>
-            </Box>
+            </Box> */}
           </Grid>
           {/* Address */}
           <Grid item xs={12} md={4}>
@@ -232,9 +284,9 @@ const AddPatient = () => {
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
+              variant="outlined"
               id="standard-basic"
               label="Enter your address"
-              variant="standard"
               multiline
               rows={3}
               fullWidth
@@ -247,9 +299,9 @@ const AddPatient = () => {
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <TextField
+              variant="outlined"
               id="standard-basic"
               label="Describe Medical History & Symptopms"
-              variant="standard"
               multiline
               rows={3}
               fullWidth
@@ -261,7 +313,10 @@ const AddPatient = () => {
             <Typography variant="OVERLINE TEXT">TEST REPORT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <input type="file" name="report" />
+            <input type="file" onChange={changeHandler} accept=".pdf, .txt" />
+            <div className="output">
+              {error && <div className="error">{error}</div>}
+            </div>
           </Grid>
           {/* gender */}
           <Grid item xs={12} md={4}>
@@ -270,8 +325,8 @@ const AddPatient = () => {
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <RadioGroup
               row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
+              aria-labelledby="radio-buttons-group-label"
+              name="radio-buttons-group"
               required
             >
               <FormControlLabel value="male" control={<Radio />} label="Male" />
@@ -299,19 +354,11 @@ const AddPatient = () => {
               <Button variant="contained" color="error" onClick={handleReset}>
                 RESET
               </Button>
-              <Button variant="contained" color="success" sx={{ ml: 2 }} type="submit" 
-                onClick={() => {
-                  const submitText = 'Are you sure you want to submit?';
-                  // if(!window.confirm) return;
-                  if(window.confirm(submitText)){
-                    const url = window.location.toString();
-                    window.location = url.replace('/addPatient/', '/appointment/');
-                  }
-                  else{
-                    console.log('cancel');
-                  }
-                  
-                }}
+              <Button
+                variant="contained"
+                color="success"
+                sx={{ ml: 2 }}
+                type="submit"
               >
                 SUBMIT
               </Button>

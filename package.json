@@ -20,6 +20,7 @@
     "material-react-table": "^0.33.6",
     "react": "^18.2.0",
     "react-axios": "^2.0.6",
+    "react-calendar": "^4.0.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
