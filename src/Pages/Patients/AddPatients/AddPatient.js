@@ -47,24 +47,29 @@ function getStyles(name, packageName, theme) {
 const AddPatient = () => {
   const theme = useTheme();
   const [packageName, setpackageName] = React.useState([]);
-  const [value, setValue] = React.useState(new Date().toDateString());// take only date not time
-  
+  const [value, setValue] = React.useState(new Date().toDateString()); // take only date not time
+
   const [file, setFile] = useState(null);
+  const [prepscription, setPrepscription] = useState(null);
   const [error, setError] = useState(null);
 
-  const types = ['application/pdf', 'text/plain'];
+  const types = ["application/pdf", "text/plain"];
 
   const changeHandler = (event) => {
     let selected = event.target.files[0];
 
     if (selected && types.includes(selected.type)) {
       setFile(selected);
-      setError('');
+      setError("");
     } else {
       setFile(null);
     }
   };
 
+  const prescriptionHandler = (event) => {
+    let selected = event.target.files[0];
+    setPrepscription(selected);
+  }
   const handleChange = (event) => {
     const {
       target: { value },
@@ -98,6 +103,7 @@ const AddPatient = () => {
     const SelectedPackage = packageName;
     const address = formData.get("address");
     const medicalHistory = formData.get("medicalHistory");
+    const gender = formData.get("radio-buttons-group");
 
     console.log(
       name,
@@ -107,6 +113,9 @@ const AddPatient = () => {
       SelectedPackage,
       address,
       medicalHistory,
+      file,
+      prepscription,
+      gender,
       email,
       value
     );
@@ -343,7 +352,8 @@ const AddPatient = () => {
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Fab color="primary" aria-label="PREPSCRIPTION">
-              <AddIcon />
+              <input type="file" onChange={prescriptionHandler} style={{ width: '4rem', paddingTop: '30px', opacity: 0, zIndex: 100, cursor: 'pointer'}} />
+              <AddIcon style={{position: 'absolute'}}  />
             </Fab>
           </Grid>
           <Grid item xs={12} md={4}>
