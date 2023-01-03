@@ -113,7 +113,7 @@ export default function PatientViewDoctor() {
   return (
     <TableContainer component={Paper}>
       {
-        <Typography variant="h6" sx={{my:3}}>Total available doctors: {data.length}</Typography>
+        <Typography variant="h6" sx={{my:3}}>Total available doctors: {data? data.length : 'Loading Data'}</Typography>
       }
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
@@ -129,14 +129,8 @@ export default function PatientViewDoctor() {
         </TableHead>
         <TableBody>
           {data.map((doctorData) => (
-            <TableRow
-              
-              key={doctorData.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row" style={{borderRight:'1px solid #ccc'}}>
-                {doctorData.name}
-              </TableCell>
+            <TableRow key={doctorData.name} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              <TableCell component="th" scope="row" style={{borderRight:'1px solid #ccc'}}>{doctorData.name}</TableCell>
               <TableCell align="center">{doctorData.specialist}</TableCell>
               <TableCell align="center">{doctorData.time}</TableCell>
               <TableCell align="center">{doctorData.fee}</TableCell>

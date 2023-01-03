@@ -14,7 +14,7 @@ import {
   Fab,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import Calender from "../../Shared/Calender/Calender";
@@ -47,7 +47,7 @@ function getStyles(name, packageName, theme) {
 const AddPatient = () => {
   const theme = useTheme();
   const [packageName, setpackageName] = React.useState([]);
-  const [value, setValue] = React.useState(new Date().toDateString()); // take only date not time
+  const [date, setDate] = React.useState(new Date().toDateString()); // take only date not time
 
   const [file, setFile] = useState(null);
   const [prepscription, setPrepscription] = useState(null);
@@ -69,16 +69,16 @@ const AddPatient = () => {
   const prescriptionHandler = (event) => {
     let selected = event.target.files[0];
     setPrepscription(selected);
-  }
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setpackageName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
   };
+  // const handleChange = (event) => {
+  //   const {
+  //     target: { value },
+  //   } = event;
+  //   setpackageName(
+  //     // On autofill we get a stringified value.
+  //     typeof value === "string" ? value.split(",") : value
+  //   );
+  // };
   // reset form if confirmed
   const form = useRef(null);
   const handleReset = () => {
@@ -89,14 +89,29 @@ const AddPatient = () => {
       console.log("cancelled");
     }
   };
-  // get email from url
+  // get doctors email from url
   const url = window.location.href;
-  const email = url.substring(url.lastIndexOf("/") + 1);
+  const doctorEmail = url.substring(url.lastIndexOf("/") + 1);
+  const [doctorInfo, setDoctorInfo] = useState([])
+  useEffect(()=>{
+    fetch(`http://localhost:5000/doctors/${doctorEmail}`)
+    .then(res => res.json())
+    .then(data => setDoctorInfo(data[0]))
+  }, [])
   // form data submit
+  // formData.append("file", file);
+  // fetch("/upload", {
+  //   method: "POST",
+  //   body: formData,
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //   });
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("name");
+    const patientName = formData.get("name");
     const phone = formData.get("phone");
     const age = formData.get("age");
     const weight = formData.get("weight");
@@ -104,21 +119,55 @@ const AddPatient = () => {
     const address = formData.get("address");
     const medicalHistory = formData.get("medicalHistory");
     const gender = formData.get("radio-buttons-group");
-
-    console.log(
-      name,
+    const doctorName = doctorInfo.name;
+    const doctorEmail = doctorInfo.email;
+    const doctorPhone = doctorInfo.phone;
+    const doctorFee = doctorInfo.fee;
+    const data = {
+      doctorName,
+      doctorEmail,
+      doctorPhone,
+      doctorFee,
+      patientName,
       phone,
       age,
       weight,
-      SelectedPackage,
       address,
       medicalHistory,
-      file,
-      prepscription,
+      // file upload needed
+      // SelectedPackage,
+      // file,
+      // prepscription,
       gender,
-      email,
-      value
-    );
+      date,
+    };
+    // console.log(
+    //   name,
+    //   phone,
+    //   age,
+    //   weight,
+    //   SelectedPackage,
+    //   address,
+    //   medicalHistory,
+    //   file,
+    //   prepscription,
+    //   gender,
+    //   email,
+    //   value
+    // );
+    fetch("http://localhost:5000/appoinments", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        if (success) {
+          alert("Appointment Created Successfully");
+        }
+      });
   };
 
   return (
@@ -158,7 +207,7 @@ const AddPatient = () => {
           color="success"
         >
           <NavLink
-            to={`/appointment/${email}`}
+            to={`/appointment/${doctorEmail}`}
             style={{ textDecoration: "none", width: "100%", color: "#fff" }}
           >
             Selected Doctor Info
@@ -245,7 +294,7 @@ const AddPatient = () => {
               width: "100%",
             }}
           >
-            <Calender value={value} setValue={setValue} />
+            <Calender value={date} setValue={setDate} />
             {/* <Box
               sx={{
                 display: "flex",
@@ -317,8 +366,8 @@ const AddPatient = () => {
               name="medicalHistory"
             />
           </Grid>
-          {/* Medical History */}
-          <Grid item xs={12} md={4}>
+          {/* Test Report */}
+          {/* <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">TEST REPORT</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
@@ -326,7 +375,7 @@ const AddPatient = () => {
             <div className="output">
               {error && <div className="error">{error}</div>}
             </div>
-          </Grid>
+          </Grid> */}
           {/* gender */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">GENDER</Typography>
@@ -346,16 +395,26 @@ const AddPatient = () => {
               />
             </RadioGroup>
           </Grid>
-          <Grid item xs={12} md={4}>
-            {/* PREPSCRIPTION, TEST REPORT,  */}
+            {/* PREPSCRIPTION  */}
+          {/* <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">ADD PREPSCRIPTION</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Fab color="primary" aria-label="PREPSCRIPTION">
-              <input type="file" onChange={prescriptionHandler} style={{ width: '4rem', paddingTop: '30px', opacity: 0, zIndex: 100, cursor: 'pointer'}} />
-              <AddIcon style={{position: 'absolute'}}  />
+              <input
+                type="file"
+                onChange={prescriptionHandler}
+                style={{
+                  width: "4rem",
+                  paddingTop: "30px",
+                  opacity: 0,
+                  zIndex: 100,
+                  cursor: "pointer",
+                }}
+              />
+              <AddIcon style={{ position: "absolute" }} />
             </Fab>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">DECISION</Typography>
           </Grid>

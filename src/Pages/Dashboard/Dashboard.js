@@ -246,7 +246,7 @@ export default function NewHeader() {
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
-                            <NavLink to="/addPatient" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                            <NavLink to="/viewDoctors" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                                 <ListItem disablePadding>
                                     <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                         <ListItemIcon>

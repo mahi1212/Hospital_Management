@@ -1,71 +1,87 @@
-import * as React from 'react';
-import './Patients.css'
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', "Dr. Mahinur", "01778287079", "02-08-22", "1:20 AM"),
-  createData('Ice cream sandwich', "Dr. Joy", "01778287079", "02-08-22", "1:20 AM"),
-  createData('Eclair', "Dr. Jubayel", "01778287079", "02-08-22", "1:20 AM"),
-  createData('Cupcake', "Dr. Olid", "01778287079", "02-08-22", "1:20 AM"),
-  createData('Gingerbread', "Dr. Mahin", "01778287079", "02-08-22", "1:20 AM"),
-];
-// no need to save 
 export default function Patients() {
+  const [patientsData, setpatientsData] = React.useState([]);
+  React.useEffect(() => {
+    fetch("http://localhost:5000/appointments")
+      .then((res) => res.json())
+      .then((patientsData) => setpatientsData(patientsData));
+  }, []);
+
   return (
-    <TableContainer sx={{padding:'0 2rem'}}>
-      <Table sx={{ minWidth: '700', margin:'0 auto' }} aria-label="customized table" className='patientTable'>
+    <TableContainer component={Paper}>
+      {
+        <Typography variant="h6" sx={{ my: 3 }}>
+          Total available Doctors: {patientsData.length}
+        </Typography>
+      }
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="center">Patients Name </StyledTableCell>
-            <StyledTableCell align="center">Doctors Name</StyledTableCell>
-            <StyledTableCell align="center">Contact</StyledTableCell>
-            <StyledTableCell align="center">Date&nbsp;</StyledTableCell>
-            <StyledTableCell align="center">Time&nbsp;</StyledTableCell>
+            <TableCell align="center" style={{ padding: "20px 0" }}>
+              Patient Name
+            </TableCell>
+            <TableCell align="center">Doctor Name</TableCell>
+            <TableCell align="center">Fee</TableCell>
+            <TableCell align="center">Patient's Phone</TableCell>
+            <TableCell align="center">Appointment Date</TableCell>
+            <TableCell align="center">Gender</TableCell>
+            <TableCell align="center">View More</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell align="center" component="th" scope="row">{row.name}</StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
-              <StyledTableCell align="center">{row.fat}</StyledTableCell>
-              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="center">{row.protein}</StyledTableCell>
-            </StyledTableRow>
+          {patientsData.map((patientsData) => (
+            <TableRow
+              key={patientsData.patientName}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell
+                component="th"
+                scope="row"
+                style={{ borderRight: "1px solid #ccc" }}
+              >
+                {patientsData.patientName}
+              </TableCell>
+              <TableCell align="center">{patientsData.doctorName}</TableCell>
+              <TableCell align="center">{patientsData.doctorFee}</TableCell>
+              <TableCell align="center">{patientsData.phone}</TableCell>
+              <TableCell align="center">{patientsData.date}</TableCell>
+              <TableCell align="center">{patientsData.gender.toUpperCase()}</TableCell>
+              {/* <TableCell align="center">{patientsData.phone}</TableCell> */}
+              <TableCell align="center">
+                <form name="button">
+                  <NavLink to={`/patientDetails/${patientsData._id}`}>
+                    <input
+                      style={{
+                        color: "#fff",
+                        background: "#000",
+                        padding: "10px",
+                        cursor: "pointer",
+                        border: "none",
+                        borderRadius: "5px",
+                        backgroundColor: "#224B0C",
+                      }}
+                      id="submit"
+                      type="submit"
+                      name="appointment"
+                      value="View More"
+                    />
+                  </NavLink>
+                </form>
+              </TableCell>
+            </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-    
   );
 }

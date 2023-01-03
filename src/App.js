@@ -18,6 +18,8 @@ import Login from "./Pages/Login/Login";
 import AuthProvider from "./context/AuthProvider";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
+import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
+import ViewDoctors from "./Pages/Patients/ViewDoctors/ViewDoctors";
 
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
               <Route path="addPatient" element={<AddPatient />}>
                 <Route path=":email" element={<AddPatient />} />
               </Route>
+              <Route path="viewDoctors" element={<ViewDoctors />} />
+              <Route path="patientDetails/:id" element={<PatientDetails />} />
               <Route path="staffs" element={<Staffs />} />
               <Route path="appointment" element={<Appointment />}>
                 <Route path=":email" element={<Appointment />} />
