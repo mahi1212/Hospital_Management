@@ -18,12 +18,12 @@ import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { MdOutlinePersonAddAlt } from 'react-icons/md';
+import { MdOutlinePersonAddAlt, MdOutlinePersonRemoveAlt1 } from 'react-icons/md';
 import { TbBed } from "react-icons/tb";
 import { FcHome } from "react-icons/fc";
 import { Outlet } from "react-router-dom";
 import { Container } from '@mui/material';
-import { BsCardChecklist } from "react-icons/bs";
+import { BsCardChecklist, BsPersonCheck } from "react-icons/bs";
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
 
@@ -171,7 +171,7 @@ export default function NewHeader() {
                         defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility:'hidden' }}>
                             <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                         </div>}
-                        sx={{ height: 140, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                        sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
                     >
                         <TreeItem nodeId="1" label="Doctors"
                             style={{ color: '#000', background: '#FFFFFF' }}>
@@ -192,6 +192,26 @@ export default function NewHeader() {
                                             <MdOutlinePersonAddAlt style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
                                         <ListItemText primary="Add Doctor" style={{marginLeft:'-1rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to="/deleteDoctor" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                                        <ListItemIcon>
+                                            <MdOutlinePersonRemoveAlt1 style={{ color: '#000', fontSize: '1.4rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Delete Doctor" style={{marginLeft:'-1rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to="/updateDoctor" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                                        <ListItemIcon>
+                                            <BsPersonCheck style={{ color: '#000', fontSize: '1.4rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Update Doctor" style={{marginLeft:'-1rem'}} />
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>

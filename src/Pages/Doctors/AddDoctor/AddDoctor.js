@@ -67,7 +67,6 @@ const AddDoctor = () => {
     const address = formData.get("address");
     const salary = formData.get("salary");
     const time = formData.get("time");
-    const doj = formData.get("doj");
     const gender = formData.get("gender");
     const picture = formData.get("image");
     const degrees = formData.get("degrees");
@@ -84,7 +83,7 @@ const AddDoctor = () => {
       time,
       date,
       gender
-    }; // degrees, picture
+    }; // picture
     fetch("http://localhost:5000/doctors", {
       method: "POST",
       headers: {
