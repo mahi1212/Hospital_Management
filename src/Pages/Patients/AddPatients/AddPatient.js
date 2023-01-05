@@ -92,12 +92,12 @@ const AddPatient = () => {
   // get doctors email from url
   const url = window.location.href;
   const doctorEmail = url.substring(url.lastIndexOf("/") + 1);
-  const [doctorInfo, setDoctorInfo] = useState([])
-  useEffect(()=>{
+  const [doctorInfo, setDoctorInfo] = useState([]);
+  useEffect(() => {
     fetch(`http://localhost:5000/doctors/${doctorEmail}`)
-    .then(res => res.json())
-    .then(data => setDoctorInfo(data[0]))
-  }, [])
+      .then((res) => res.json())
+      .then((data) => setDoctorInfo(data[0]));
+  }, []);
   // form data submit
   // formData.append("file", file);
   // fetch("/upload", {
@@ -119,6 +119,7 @@ const AddPatient = () => {
     const address = formData.get("address");
     const medicalHistory = formData.get("medicalHistory");
     const gender = formData.get("radio-buttons-group");
+    const blood = formData.get("blood");
     const doctorName = doctorInfo.name;
     const doctorEmail = doctorInfo.email;
     const doctorPhone = doctorInfo.phone;
@@ -139,6 +140,7 @@ const AddPatient = () => {
       // file,
       // prepscription,
       gender,
+      blood,
       date,
     };
     // console.log(
@@ -279,7 +281,7 @@ const AddPatient = () => {
               name="weight"
             />
           </Grid>
-
+          
           {/* Appointment date */}
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">SELECT DATE</Typography>
@@ -395,7 +397,28 @@ const AddPatient = () => {
               />
             </RadioGroup>
           </Grid>
-            {/* PREPSCRIPTION  */}
+          {/* Blood group */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="OVERLINE TEXT">BLOOD</Typography>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+            <RadioGroup
+              row
+              aria-labelledby="blood-label"
+              name="blood"
+              required
+            >
+              <FormControlLabel value="O+" control={<Radio />} label="O+" />
+              <FormControlLabel value="O-" control={<Radio />} label="O-" />
+              <FormControlLabel value="A+" control={<Radio />} label="A+" />
+              <FormControlLabel value="A-" control={<Radio />} label="A-" />
+              <FormControlLabel value="B+" control={<Radio />} label="B+" />
+              <FormControlLabel value="B-" control={<Radio />} label="B-" />
+              <FormControlLabel value="AB+" control={<Radio />} label="AB+" />
+              <FormControlLabel value="AB-" control={<Radio />} label="AB-" />
+            </RadioGroup>
+          </Grid>
+          {/* PREPSCRIPTION  */}
           {/* <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">ADD PREPSCRIPTION</Typography>
           </Grid>

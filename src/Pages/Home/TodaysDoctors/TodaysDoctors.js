@@ -33,8 +33,9 @@ export default function TodaysDoctors() {
         gap: "1rem",
       }}
     >
-      {doctors.map((doctor) => (
+      {doctors.slice(0,4).map((doctor) => (
         <NavLink
+          key={doctor._id}
           to={"/addPatient/" + doctor.email}
           style={{
             textDecoration: "none",

@@ -13,8 +13,8 @@ import {
   OutlinedInput,
   Fab,
 } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import React from "react";
+import AddIcon from "@mui/icons-material/Add";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { CalendarMonth } from "@mui/icons-material";
@@ -31,8 +31,7 @@ const MenuProps = {
   },
 };
 
-const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
-
+const degreeList = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -45,6 +44,7 @@ function getStyles(name, personName, theme) {
 const AddDoctor = () => {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+  const [date, setDate] = React.useState(new Date().toDateString());
 
   const handleChange = (event) => {
     const {
@@ -68,10 +68,36 @@ const AddDoctor = () => {
     const salary = formData.get("salary");
     const time = formData.get("time");
     const doj = formData.get("doj");
-    const gender = formData.get("gender")
+    const gender = formData.get("gender");
     const picture = formData.get("image");
-
-    console.log(name, email, phone,fee, age,specialist,address, salary, time, doj, gender, picture);
+    const degrees = formData.get("degrees");
+    const data = {
+      name,
+      phone,
+      email,
+      fee,
+      age,
+      specialist,
+      address,
+      degrees,
+      salary,
+      time,
+      date,
+      gender
+    }; // degrees, picture
+    fetch("http://localhost:5000/doctors", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        if (success) {
+          alert("Doctor Added Successfully");
+        }
+      });
   };
   return (
     <Box
@@ -161,7 +187,13 @@ const AddDoctor = () => {
             <Typography variant="OVERLINE TEXT">Age</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
-            <TextField id="standard-basic" label="Set Age" name="age" required fullWidth />
+            <TextField
+              id="standard-basic"
+              label="Set Age"
+              name="age"
+              required
+              fullWidth
+            />
           </Grid>
           {/* Specialist */}
           <Grid item xs={12} md={4}>
@@ -200,6 +232,7 @@ const AddDoctor = () => {
               <Select
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"
+                name="degrees"
                 multiple
                 value={personName}
                 onChange={handleChange}
@@ -218,7 +251,7 @@ const AddDoctor = () => {
                 <MenuItem disabled value="">
                   <em>You Can Choose Multiple Degrees </em>
                 </MenuItem>
-                {names.map((name) => (
+                {degreeList.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -268,7 +301,7 @@ const AddDoctor = () => {
               required
               fullWidth
             /> */}
-            <Calender name="doj"/>
+            <Calender value={date} setValue={setDate} />
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="OVERLINE TEXT">Gender</Typography>
@@ -280,10 +313,7 @@ const AddDoctor = () => {
               name="gender"
               required
             >
-              <FormControlLabel
-                value="male"
-                control={<Radio />}
-                label="Male" />
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
 
               <FormControlLabel
                 value="female"
@@ -298,20 +328,27 @@ const AddDoctor = () => {
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
             <Fab color="primary" aria-label="add">
-              <input type="file" name="image" alt="image-upload" style={{
-                // position: "absolute",
-                // top: 0,
-                // left: 0,
-                opacity: 0,
-                cursor: "pointer",
-                zIndex: 1,
-                height: '55px',
-              }} />
-              <AddIcon style={{
-                position: "absolute",
-                top: 15,
-                left: 17,
-              }} />
+              <input
+                type="file"
+                name="image"
+                alt="image-upload"
+                style={{
+                  // position: "absolute",
+                  // top: 0,
+                  // left: 0,
+                  opacity: 0,
+                  cursor: "pointer",
+                  zIndex: 1,
+                  height: "55px",
+                }}
+              />
+              <AddIcon
+                style={{
+                  position: "absolute",
+                  top: 15,
+                  left: 17,
+                }}
+              />
             </Fab>
           </Grid>
           <Grid item xs={12} md={4}>
