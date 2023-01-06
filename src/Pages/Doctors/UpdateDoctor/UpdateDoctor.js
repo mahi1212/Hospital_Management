@@ -100,7 +100,8 @@ const UpdateDoctor = () => {
                   id="Name"
                   name="name"
                   variant="standard"
-                  value={doctor.name}
+                  defaultValue={doctor.name}
+                  contentEditable
                 />
               </Box>
               <Box
@@ -117,7 +118,7 @@ const UpdateDoctor = () => {
                   id="Name"
                   name="age"
                   variant="standard"
-                  value={doctor.age}
+                  defaultValue={doctor.age}
                 />
               </Box>
               <Box
@@ -147,7 +148,7 @@ const UpdateDoctor = () => {
                 <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
                   Email
                 </Typography>
-                <TextField id="Name" variant="standard" value={doctor.email} />
+                <TextField id="Name" variant="standard" defaultValue={doctor.email} />
               </Box>
               <Box
                 sx={{
@@ -174,7 +175,7 @@ const UpdateDoctor = () => {
                 <TextField
                   id="Name"
                   variant="standard"
-                  value={doctor.degrees}
+                  defaultValue={doctor.degrees}
                 />
               </Box>
               <Box
@@ -187,7 +188,7 @@ const UpdateDoctor = () => {
                 <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
                   Salary
                 </Typography>
-                <TextField id="Name" variant="standard" value={doctor.salary} />
+                <TextField id="Name" variant="standard" defaultValue={doctor.salary} />
               </Box>
               <Box
                 sx={{
@@ -202,7 +203,7 @@ const UpdateDoctor = () => {
                 <TextField
                   id="Name"
                   variant="standard"
-                  value={doctor.specialist}
+                  defaultValue={doctor.specialist}
                 />
               </Box>
               <Box
@@ -215,7 +216,7 @@ const UpdateDoctor = () => {
                 <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
                   Time
                 </Typography>
-                <TextField id="Name" variant="standard" value={doctor.time} />
+                <TextField id="Name" variant="standard" defaultValue={doctor.time} />
               </Box>
               {/* update button */}
               <Button
