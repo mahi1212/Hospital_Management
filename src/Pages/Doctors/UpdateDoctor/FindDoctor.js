@@ -5,7 +5,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const UpdateDoctor = () => {
+const FindDoctor = () => {
   const [searchTerm, setSearchTerm] = useState(""); // value of the search input
   const [doctors, setDoctors] = useState([]); // list of doctors
   const [filteredNames, setFilteredNames] = useState([]); // list of names that match the search term
@@ -70,7 +70,7 @@ const UpdateDoctor = () => {
   };
 
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%", background: '#fff', padding: '20px' }}>
       {/* search box */}
       <input
         type="text"
@@ -149,7 +149,7 @@ const UpdateDoctor = () => {
             </Grid>
           ))
         ) : (
-          <div>
+          <div style={{marginLeft: '-30px'}}>
             <h3>ENTER VALID NAME</h3>
           </div>
         )}
@@ -158,4 +158,4 @@ const UpdateDoctor = () => {
   );
 };
 
-export default UpdateDoctor;
+export default FindDoctor;

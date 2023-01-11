@@ -21,7 +21,8 @@ import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
 import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
 import ViewDoctors from "./Pages/Patients/ViewDoctors/ViewDoctors";
 import DeleteDoctor from "./Pages/Doctors/DeleteDoctor/DeleteDoctor";
-import UpdateDoctor from "./Pages/Doctors/UpdateDoctor/UpdateDoctor";
+import UpdateDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
+import FindDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
               <Route path="doctors" element={<PatientViewDoctor />} />
               <Route path="addDoctor" element={<AddDoctor />} />
               <Route path="deleteDoctor" element={<DeleteDoctor />} />
-              <Route path="updateDoctor" element={<UpdateDoctor />} />
+              <Route path="updateDoctor" element={<FindDoctor />} />
               <Route path="patients" element={<Patients />} />
               <Route path="addPatient" element={<AddPatient />}>
                 <Route path=":email" element={<AddPatient />} />

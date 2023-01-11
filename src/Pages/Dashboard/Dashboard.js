@@ -181,7 +181,7 @@ export default function NewHeader() {
                                         <ListItemIcon>
                                             <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} />
                                         </ListItemIcon>
-                                        <ListItemText primary="Doctor List" style={{marginLeft:'-1rem'}}/>
+                                        <ListItemText primary="Appointment" style={{marginLeft:'-1rem'}}/>
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
@@ -211,7 +211,7 @@ export default function NewHeader() {
                                         <ListItemIcon>
                                             <MdOutlinePersonSearch style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
-                                        <ListItemText primary="Update Doctor" style={{marginLeft:'-1rem'}} />
+                                        <ListItemText primary="Find Doctor" style={{marginLeft:'-1rem'}} />
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
