@@ -18,7 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { MdOutlinePersonAddAlt, MdOutlinePersonRemoveAlt1 } from 'react-icons/md';
+import { MdOutlinePersonAddAlt, MdOutlinePersonRemoveAlt1, MdOutlinePersonSearch } from 'react-icons/md';
 import { TbBed } from "react-icons/tb";
 import { FcHome } from "react-icons/fc";
 import { Outlet } from "react-router-dom";
@@ -209,7 +209,7 @@ export default function NewHeader() {
                                 <ListItem disablePadding>
                                     <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
                                         <ListItemIcon>
-                                            <BsPersonCheck style={{ color: '#000', fontSize: '1.4rem' }} />
+                                            <MdOutlinePersonSearch style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
                                         <ListItemText primary="Update Doctor" style={{marginLeft:'-1rem'}} />
                                     </ListItemButton>

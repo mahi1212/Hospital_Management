@@ -1,5 +1,5 @@
 import { ElevatorSharp } from "@mui/icons-material";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useState } from "react";
@@ -9,7 +9,22 @@ const UpdateDoctor = () => {
   const [searchTerm, setSearchTerm] = useState(""); // value of the search input
   const [doctors, setDoctors] = useState([]); // list of doctors
   const [filteredNames, setFilteredNames] = useState([]); // list of names that match the search term
+  const [ifSearched, setIfSearched] = useState(false);
 
+  // const [name, setName] = useState(""); // name of the doctor to be updated
+  // const [phone, setPhone] = useState(""); // phone of the doctor to be updated
+  // const [address, setAddress] = useState(""); // address of the doctor to be updated
+  // const [specialist, setSpecialist] = useState(""); // specialist of the doctor to be updated
+
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value);
+  // };
+  // const handlePhoneChange = (e) => {
+  //   setPhone(e.target.value);
+  // };
+  // const handleAddressChange = (e) => {
+  //   setAddress(e.target.value);
+  // };
   //   search doctor by name
 
   useEffect(() => {
@@ -19,46 +34,38 @@ const UpdateDoctor = () => {
   }, []);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-  };
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.target);
-//     const name = formData.get("name");
-//     const phone = formData.get("phone");
-//     const address = formData.get("address");
-//     const data = {
-//       name,
-//       phone,
-//       address,
-//     }; // picture
-//     handleUpdate(data);
-//   };
-  const handleUpdate = (id) => {    
-    fetch(`http://localhost:5000/doctors/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        specialist: "Cardiologist", 
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result) {
-          alert("Updated Successfully");
-        }
-      });
+    setIfSearched(true);
   };
 
+  // const handleUpdate = (id) => {
+  //   fetch(`http://localhost:5000/doctors/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       name: name,
+  //       phone: phone,
+  //       address: address,
+  //       specialist: specialist,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       if (result) {
+  //         alert("Updated Successfully");
+  //       }
+  //     });
+  // };
   const handleSearch = () => {
     if (searchTerm === "") {
-      return alert("Please enter a name to search");
+      return alert("Please enter a valid name to search");
     } else {
       const filteredNames = doctors.filter((doctor) => {
         return doctor.name.toLowerCase().includes(searchTerm.toLowerCase());
       });
       setFilteredNames(filteredNames);
+      setIfSearched(true);
     }
   };
 
@@ -67,7 +74,7 @@ const UpdateDoctor = () => {
       {/* search box */}
       <input
         type="text"
-        placeholder="Search Doctor"
+        placeholder="Search Doctor By Name"
         value={searchTerm}
         onChange={handleChange}
         style={{
@@ -80,157 +87,72 @@ const UpdateDoctor = () => {
       />
       <button onClick={handleSearch}>Search</button>
       <ul>
-        {filteredNames.map((doctor) => (
-          <div key={doctor._id}>
-            <form
-              style={{ background: "#fff", borderRadius: "5px" }}
-              onSubmit={handleUpdate}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+        {ifSearched === true && filteredNames.length !== 0 ? (
+          filteredNames.map((doctor) => (
+            <Grid key={doctor._id} container spacing={2} sx={{ mt: 4, pb:4, borderBottom: "1px solid #ccc"  }}>
+              <Grid
+                item
+                xs={4}
+                md={4}
+                lg={4}
+                sx={{ borderRight: "1px solid #ccc", pb: 10}}
               >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Name
-                </Typography>
-                <TextField
-                  id="Name"
-                  name="name"
-                  variant="standard"
-                  defaultValue={doctor.name}
-                  contentEditable
+                {/* image and name with speciality */}
+                <img
+                  src={doctor.picture}
+                  alt="doctor's image"
+                  style={{ width: "80%", height: "90%", borderRadius: "50%" }}
                 />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5 }}>
-                  Age
+
+                <Typography component="h1" variant="h5" sx={{ my: 1 }}>
+                  {doctor.name.toUpperCase()}
                 </Typography>
-                <TextField
-                  id="Name"
-                  name="age"
-                  variant="standard"
-                  defaultValue={doctor.age}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Address
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  align="center"
+                >
+                  {doctor.specialist}
                 </Typography>
-                <TextField
-                  id="address"
-                  name="address"
-                  variant="standard"
-                  value={doctor.address}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+              </Grid>
+              <Grid
+                item
+                xs={8}
+                md={8}
+                lg={8}
+                sx={{ textAlign: "left", textTransform: 'uppercase'}}
               >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Email
-                </Typography>
-                <TextField id="Name" variant="standard" defaultValue={doctor.email} />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Phone
-                </Typography>
-                <TextField id="Name" variant="standard" value={doctor.phone} />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Degrees
-                </Typography>
-                <TextField
-                  id="Name"
-                  variant="standard"
-                  defaultValue={doctor.degrees}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Salary
-                </Typography>
-                <TextField id="Name" variant="standard" defaultValue={doctor.salary} />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Specialist
-                </Typography>
-                <TextField
-                  id="Name"
-                  variant="standard"
-                  defaultValue={doctor.specialist}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography variant="h6" sx={{ mr: 5, mt: 2 }}>
-                  Time
-                </Typography>
-                <TextField id="Name" variant="standard" defaultValue={doctor.time} />
-              </Box>
-              {/* update button */}
-              <Button
-                variant="contained"
-                sx={{ mt: 2, mb: 2, ml: 2 }}
-                onClick={() => {
-                    handleUpdate(doctor._id);
-                }}
-              >
-                Update
-              </Button>
-            </form>
+                <Box sx={{pl: 4}}>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Name : {doctor.name}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Phone : {doctor.phone}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Fee : {doctor.fee}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Degree : {doctor.degrees}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Salary : {doctor.salary}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    Time : {doctor.time}
+                  </Typography>
+                  <Typography component="h2" variant="h6" sx={{mt: 2}}>
+                    gender : {doctor.gender}
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          ))
+        ) : (
+          <div>
+            <h3>ENTER VALID NAME</h3>
           </div>
-        ))}
+        )}
       </ul>
     </div>
   );
