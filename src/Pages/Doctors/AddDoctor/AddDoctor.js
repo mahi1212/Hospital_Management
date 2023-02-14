@@ -45,7 +45,7 @@ const AddDoctor = () => {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
   const [date, setDate] = React.useState(new Date().toDateString());
-
+  const [image, setImage] = useState(null);
   const handleChange = (event) => {
     const {
       target: { value },
@@ -68,8 +68,8 @@ const AddDoctor = () => {
     const salary = formData.get("salary");
     const time = formData.get("time");
     const gender = formData.get("gender");
-    const picture = formData.get("image");
     const degrees = formData.get("degrees");
+    formData.append("image", image); // <-- append the image to the formData
     const data = {
       name,
       phone,
@@ -81,15 +81,12 @@ const AddDoctor = () => {
       degrees,
       salary,
       time,
+      gender,
       date,
-      gender
-    }; // picture
+    };
     fetch("http://localhost:5000/doctors", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: formData, // <-- send the formData in the body of the request
     })
       .then((res) => res.json())
       .then((success) => {
@@ -98,6 +95,9 @@ const AddDoctor = () => {
         }
       });
   };
+
+
+
   return (
     <Box
       style={{
@@ -326,15 +326,16 @@ const AddDoctor = () => {
             <Typography variant="OVERLINE TEXT">Add Image</Typography>
           </Grid>
           <Grid item xs={12} md={8} sx={{ marginLeft: { md: "-5rem" } }}>
+
             <Fab color="primary" aria-label="add">
               <input
+                accept="image/*"
                 type="file"
-                name="image"
+                onChange={(e) => setImage(e.target.files[0])} // <-- set the selected file as the image state
+                name="image" // <-- make sure this matches the property name used in the data object
                 alt="image-upload"
+
                 style={{
-                  // position: "absolute",
-                  // top: 0,
-                  // left: 0,
                   opacity: 0,
                   cursor: "pointer",
                   zIndex: 1,

@@ -10,7 +10,7 @@ const FindDoctor = () => {
   const [doctors, setDoctors] = useState([]); // list of doctors
   const [filteredNames, setFilteredNames] = useState([]); // list of names that match the search term
   const [ifSearched, setIfSearched] = useState(false);
-
+  console.log(doctors);
   // const [name, setName] = useState(""); // name of the doctor to be updated
   // const [phone, setPhone] = useState(""); // phone of the doctor to be updated
   // const [address, setAddress] = useState(""); // address of the doctor to be updated
@@ -99,9 +99,9 @@ const FindDoctor = () => {
               >
                 {/* image and name with speciality */}
                 <img
-                  src={doctor.picture}
-                  alt="doctor's image"
-                  style={{ width: "80%", height: "90%", borderRadius: "50%" }}
+                  src={`data:image/png;base64,${doctor.image}`}
+                  alt="doctor Image"
+                  style={{ width: "80%", height: "80%", borderRadius: "50%" }}
                 />
 
                 <Typography component="h1" variant="h5" sx={{ my: 1 }}>
