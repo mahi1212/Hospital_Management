@@ -8,7 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { NavLink } from "react-router-dom";
 import { Typography } from "@mui/material";
-
+import { AiOutlineDelete } from "react-icons/ai";
+import { useEffect } from "react";
 export default function Patients() {
   const [patientsData, setpatientsData] = React.useState([]);
   React.useEffect(() => {
@@ -16,6 +17,21 @@ export default function Patients() {
       .then((res) => res.json())
       .then((patientsData) => setpatientsData(patientsData));
   }, []);
+  const deletePatient = (id) => {
+    fetch(`http://localhost:5000/patients/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          alert("Patient Deleted Successfully");
+        }
+      });
+      // update data after delete
+      fetch("http://localhost:5000/appointments")
+      .then((res) => res.json())
+      .then((patientsData) => setpatientsData(patientsData));
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -35,6 +51,7 @@ export default function Patients() {
             <TableCell align="center">Patient's Phone</TableCell>
             <TableCell align="center">Appointment Date</TableCell>
             <TableCell align="center">Gender</TableCell>
+            <TableCell align="center">Action</TableCell>
             <TableCell align="center">View More</TableCell>
           </TableRow>
         </TableHead>
@@ -56,7 +73,13 @@ export default function Patients() {
               <TableCell align="center">{patientsData.phone}</TableCell>
               <TableCell align="center">{patientsData.date}</TableCell>
               <TableCell align="center">{patientsData.gender.toUpperCase()}</TableCell>
-              {/* <TableCell align="center">{patientsData.phone}</TableCell> */}
+              <TableCell align="center">< AiOutlineDelete onClick={() => {
+                deletePatient(patientsData._id)
+              }
+              } style={{
+                cursor: 'pointer',
+                fontSize: '1.5rem',
+              }} /></TableCell>
               <TableCell align="center">
                 <form name="button">
                   <NavLink to={`/patientDetails/${patientsData._id}`}>
