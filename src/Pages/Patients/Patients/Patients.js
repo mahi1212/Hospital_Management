@@ -21,7 +21,7 @@ export default function Patients() {
     <TableContainer component={Paper}>
       {
         <Typography variant="h6" sx={{ my: 3 }}>
-          Total available Doctors: {patientsData.length}
+          TOTAL AVAILABLE PATIENT: {patientsData.length}
         </Typography>
       }
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">

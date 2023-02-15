@@ -1,51 +1,44 @@
 import {
   Box,
   Button,
-  Chip,
   FormControlLabel,
   Grid,
   Radio,
   RadioGroup,
   TextField,
   Typography,
-  Select,
-  MenuItem,
-  OutlinedInput,
-  Fab,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import React, { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import Calender from "../../Shared/Calender/Calender";
-import { Email } from "@mui/icons-material";
 import { useState } from "react";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
-const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
-const packages = ["24 HOURS", "MORE THAN 2 DAYS", "10 DAYS OR MORE"];
+// const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
+// const packages = ["24 HOURS", "MORE THAN 2 DAYS", "10 DAYS OR MORE"];
 
-function getStyles(name, packageName, theme) {
-  return {
-    fontWeight:
-      packageName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+// function getStyles(name, packageName, theme) {
+//   return {
+//     fontWeight:
+//       packageName.indexOf(name) === -1
+//         ? theme.typography.fontWeightRegular
+//         : theme.typography.fontWeightMedium,
+//   };
+// }
 
 const AddPatient = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const [packageName, setpackageName] = React.useState([]);
   const [date, setDate] = React.useState(new Date().toDateString()); // take only date not time
 
@@ -115,7 +108,7 @@ const AddPatient = () => {
     const phone = formData.get("phone");
     const age = formData.get("age");
     const weight = formData.get("weight");
-    const SelectedPackage = packageName;
+    // const SelectedPackage = packageName;
     const address = formData.get("address");
     const medicalHistory = formData.get("medicalHistory");
     const gender = formData.get("radio-buttons-group");

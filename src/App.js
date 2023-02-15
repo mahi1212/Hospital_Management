@@ -4,9 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
-import Doctors from "./Pages/Doctors/Doctors/Doctors";
 import Home from "./Pages/Home/Home/Home";
-import Patients from "./Pages/Patients/Patients";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Staffs from "./Pages/Staffs/Staffs";
 import Appointment from "./Pages/Appointments/Appointment";
@@ -17,12 +15,12 @@ import PatientViewDoctor from "./Pages/Doctors/Doctors/PatientViewDoctor";
 import Login from "./Pages/Login/Login";
 import AuthProvider from "./context/AuthProvider";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
-import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
-import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
 import ViewDoctors from "./Pages/Patients/ViewDoctors/ViewDoctors";
 import DeleteDoctor from "./Pages/Doctors/DeleteDoctor/DeleteDoctor";
-import UpdateDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
 import FindDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
+import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
+import Patients from "./Pages/Patients/Patients/Patients";
+import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
 
 
 function App() {

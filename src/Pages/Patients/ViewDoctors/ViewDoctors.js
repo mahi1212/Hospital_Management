@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, CardActions, Divider, Grid } from "@mui/material";
+import { Box, CardActionArea, CardActions, Chip, Divider, Grid } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { NavLink } from "react-router-dom";
@@ -17,8 +17,8 @@ const ViewDoctors = () => {
   }, []);
   return (
     <div>
-      <h3 style={{ marginTop: "1rem", textAlign: "left" }}>
-        SELECT A DOCTOR PLEASE
+      <h3 style={{ marginTop: "1rem", textAlign: "left", color: 'orange' }}>
+        <Chip label="FIRST SELECT A DOCTOR FOR PATIENT" color="success" />
       </h3>
       <Grid
         container
@@ -48,12 +48,11 @@ const ViewDoctors = () => {
             }}
           >
             <Card elevation={3}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="160"
-                  image="https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg?w=996&t=st=1659640512~exp=1659641112~hmac=3587a885638b8ca8621583b406c74569e2474e99107b4a5859e96a0e65bfa567.jpg"
-                  alt="green iguana"
+              <CardActionArea sx={{display: 'flex'}}>
+                <img
+                  src={`data:image/png;base64,${doctor.image}`}
+                  alt="doctor Image"
+                  style={{ width: "300px", height: "200px", borderRadius: "3px" }}
                 />
                 <CardContent sx={{ textAlign: "left" }}>
                   <Typography gutterBottom variant="h6" component="div">
