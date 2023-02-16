@@ -28,7 +28,6 @@ import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
 
 import LoginIcon from '@mui/icons-material/Login';
-import useAuth from '../../hooks/useAuth';
 
 const drawerWidth = 240;
 
@@ -88,7 +87,7 @@ export default function NewHeader() {
         setOpen(false);
     };
     // User login check
-    const {user} = useAuth();
+    // const {user} = useAuth();
 
 
     return (

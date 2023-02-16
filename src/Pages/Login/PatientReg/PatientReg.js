@@ -5,11 +5,9 @@ import Container from "@mui/material/Container";
 import { Button, Card, TextField, Typography } from "@mui/material";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Gender from "../../Shared/Gender/Gender";
-import useAuth from "../../../hooks/useAuth";
 
 const PatientReg = () => {
   const [loginData, setLoginData] = useState({});
-  const {error, registerUser} = useAuth();
   const navigate = useNavigate()
 
   const handleOnChange = (e) => {
@@ -27,7 +25,7 @@ const PatientReg = () => {
     // if (loginData.password !== loginData.password2) {
     //   alert("Your Password did not matched");
     // }
-    registerUser(loginData.name, loginData.email, loginData.password, navigate)
+    // registerUser(loginData.name, loginData.email, loginData.password, navigate)
     alert('Successfully logged in!')
   };
 
@@ -35,7 +33,7 @@ const PatientReg = () => {
     <div>
       <Container fixed>
         <Typography variant="h5" gutterBottom component="div">
-          Register As Patient
+          REGISTER AS PATIENT
         </Typography>
         <Box>
           <form className="text-center" onSubmit={handleSignUpSubmit}>
@@ -130,11 +128,13 @@ const PatientReg = () => {
           </form>
         </Box>
           {/* Go to login Page */}
-        <Link to="/login">
-          <Button sx={{ width: "50%", m: 1 }} color="inherit">
-            Already have an account
+        <NavLink to="/login" style={{
+          textDecoration: 'none'
+        }}>
+          <Button sx={{ width: "100%", m: 1 }} color="inherit">
+            Already have an account ? 
           </Button>
-        </Link>
+        </NavLink>
       </Container>
     </div>
   );

@@ -117,16 +117,25 @@ const DoctortReg = () => {
 
           </form>
           <Button
-            sx={{ width: '30%', m: 3 }}
+            sx={{ width: "30%", m: 3 }}
             varient="contained"
             type="submit"
             style={{
-              backgroundColor: ' #e6ecf0',
-              color: 'black'
-            }}>Register</Button>
+              backgroundColor: "green",
+              color: "#fff",
+            }}
+          >
+            Register
+          </Button>
         </Box>
 
-        <Link to='/login'><Button sx={{ width: '50%', m: 1 }} color="inherit">Already have an account</Button></Link>
+        <NavLink to="/login" style={{
+          textDecoration: 'none'
+        }}>
+          <Button sx={{ width: "100%", m: 1 }} color="inherit">
+            Already have an account ?
+          </Button>
+        </NavLink>
       </Container>
     </div>
 

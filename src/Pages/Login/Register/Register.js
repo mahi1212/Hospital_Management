@@ -10,7 +10,7 @@ import PatientReg from '../PatientReg/PatientReg';
 import { Card, Container } from '@mui/material';
 
 function TabPanel(props) {
-  
+
 
   const { children, value, index, ...other } = props;
 
@@ -58,62 +58,58 @@ export default function Register() {
     //   backgroundColor: 'white',
     //   maxWidth:'80px'
     // },
-    "&:focus" :{
-      backgroundColor:"white",
-      borderRadius:'30px',
-      color:'black'
+    "&:focus": {
+      backgroundColor: "white",
+      borderRadius: '30px',
+      color: 'black'
     }
   };
 
-  
+
 
   return (
-    <Card sx={{ 
+    <Card sx={{
       minWidth: 300,
-      maxWidth:'100vw',
-      height:'100%',
-      background:'rgb(45, 225, 240)',
-      marginTop:'50px',
-      borderRadius:'5px', 
-      backgroundColor:'white',
-      
-      
-      }}  >
-    
-    <Container fixed >
-    <Box >
-      <Box >
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
-        
-        sx={{
-          // backgroundColor:' #430089',
-          backgroundColor:'#e6ecf0',
-          borderRadius:'100px',
-          marginTop:'20px',
-          display:'flex',
-          alignItems:'center',
-          justifyContent:'center', 
-          
-          }} >
-          <Tab label="Patient" {...a11yProps(0)} sx={boxSX}/>
-          <Tab label="Doctor" {...a11yProps(1)} sx={boxSX} />
-          <Tab label="Admin" {...a11yProps(2)} sx={boxSX} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-      <PatientReg></PatientReg>
+      maxWidth: '100vw',
+      height: '100%',
+      background: 'rgb(45, 225, 240)',
+      marginTop: '50px',
+      borderRadius: '5px',
+      backgroundColor: 'white',
+    }}  >
 
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      <DoctorReg></DoctorReg>
-      
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <AdminReg></AdminReg>
-      </TabPanel>
-    </Box>
-    </Container>
-    
+      <Container fixed >
+        <Box >
+          <Box >
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"
+
+              sx={{
+                // backgroundColor:' #430089',
+                backgroundColor: '#e6ecf0',
+                borderRadius: '100px',
+                marginTop: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+
+              }} >
+              <Tab label="Patient" {...a11yProps(0)} sx={boxSX} />
+              <Tab label="Doctor" {...a11yProps(1)} sx={boxSX} />
+              {/* <Tab label="Admin" {...a11yProps(2)} sx={boxSX} /> */}
+            </Tabs>
+          </Box>
+          <TabPanel value={value} index={0}>
+            <PatientReg></PatientReg>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <DoctorReg></DoctorReg>
+          </TabPanel>
+          {/* <TabPanel value={value} index={2}> */}
+          {/* <AdminReg></AdminReg> */}
+          {/* </TabPanel> */}
+        </Box>
+      </Container>
+
     </Card>
   );
 }
