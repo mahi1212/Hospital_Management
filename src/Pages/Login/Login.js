@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Button, Card, TextField, Typography } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import GoogleIcon from '@mui/icons-material/Google';
 
 const Login = () => {
@@ -83,8 +83,11 @@ const Login = () => {
             { user.email ? <button onClick={logOut}>Logout</button> : <span>Not logged in</span>}
             <br />
             {user.email && <span>Logged in as : {user.displayName}</span>}
-            <br />
-        <Link to='/registration'><Button  sx={{ width: '50%', m: 1 }} >For the First time</Button></Link> */}
+            <br />*/}
+                <NavLink to='/registration' style={{
+                  textDecoration: 'none',
+                  
+                }}><Button sx={{ width: '50%', m: 1, background:'#F6FAFD'}} >For the First time ?</Button></NavLink>
               </form>
             </Grid>
 
