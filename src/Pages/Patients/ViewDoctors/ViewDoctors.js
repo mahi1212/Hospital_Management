@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 const ViewDoctors = () => {
   const [doctors, setDoctors] = React.useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("http://localhost:5000/approvedDoctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

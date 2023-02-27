@@ -52,7 +52,7 @@ export default function Patients() {
             <TableCell align="center">Appointment Date</TableCell>
             <TableCell align="center">Gender</TableCell>
             <TableCell align="center">Action</TableCell>
-            <TableCell align="center">View More</TableCell>
+            <TableCell align="center">Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -87,7 +87,7 @@ export default function Patients() {
                       style={{
                         color: "#fff",
                         background: "#000",
-                        padding: "10px",
+                        padding: "10px 20px",
                         cursor: "pointer",
                         border: "none",
                         borderRadius: "5px",
@@ -96,7 +96,7 @@ export default function Patients() {
                       id="submit"
                       type="submit"
                       name="appointment"
-                      value="View More"
+                      value="View"
                     />
                   </NavLink>
                 </form>
