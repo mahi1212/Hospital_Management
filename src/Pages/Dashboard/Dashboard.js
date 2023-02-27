@@ -20,10 +20,10 @@ import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdOutlinePersonAddAlt, MdOutlinePersonRemoveAlt1, MdOutlinePersonSearch } from 'react-icons/md';
 import { TbBed } from "react-icons/tb";
-import { FcHome } from "react-icons/fc";
+import { FcApproval, FcHome } from "react-icons/fc";
 import { Outlet } from "react-router-dom";
 import { Container } from '@mui/material';
-import { BsCardChecklist, BsPersonCheck } from "react-icons/bs";
+import { BsCardChecklist, BsPersonCheck, BsPersonLinesFill } from "react-icons/bs";
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
 
@@ -170,7 +170,7 @@ export default function NewHeader() {
                         defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility:'hidden' }}>
                             <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                         </div>}
-                        sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                        sx={{ height: 300, flexGrow: 1, maxWidth: 420, overflowY: 'auto' }}
                     >
                         <TreeItem nodeId="1" label="Doctors"
                             style={{ color: '#000', background: '#FFFFFF' }}>
@@ -181,6 +181,17 @@ export default function NewHeader() {
                                             <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} />
                                         </ListItemIcon>
                                         <ListItemText primary="Appointment" style={{marginLeft:'-1rem'}}/>
+                                    </ListItemButton>
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to="/approveDoctor" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0'}}>
+                                        <ListItemIcon>
+                                            {/* <BsCardChecklist style={{ color: '#000', fontSize: '1.3rem' }} /> */}
+                                            <BsPersonLinesFill style={{ color: '#000', fontSize: '1.4rem' }} />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Approval" style={{marginLeft:'-1rem'}}/>
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>

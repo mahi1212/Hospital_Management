@@ -65,13 +65,10 @@ export default function Register() {
     }
   };
 
-
-
   return (
     <Card sx={{
       minWidth: 300,
       maxWidth: '100vw',
-      height: '100%',
       background: 'rgb(45, 225, 240)',
       marginTop: '50px',
       borderRadius: '5px',
@@ -80,36 +77,33 @@ export default function Register() {
 
       <Container fixed >
         <Box >
-          <Box >
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"
+            sx={{
+              backgroundColor: '#e6ecf0',
+              borderRadius: '100px',
+              marginTop: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
 
-              sx={{
-                // backgroundColor:' #430089',
-                backgroundColor: '#e6ecf0',
-                borderRadius: '100px',
-                marginTop: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-
-              }} >
-              <Tab label="Patient" {...a11yProps(0)} sx={boxSX} />
-              <Tab label="Doctor" {...a11yProps(1)} sx={boxSX} />
-              {/* <Tab label="Admin" {...a11yProps(2)} sx={boxSX} /> */}
-            </Tabs>
-          </Box>
-          <TabPanel value={value} index={0}>
-            <PatientReg></PatientReg>
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <DoctorReg></DoctorReg>
-          </TabPanel>
-          {/* <TabPanel value={value} index={2}> */}
-          {/* <AdminReg></AdminReg> */}
-          {/* </TabPanel> */}
+            }} >
+            <Tab label="Patient" {...a11yProps(0)} sx={boxSX} />
+            <Tab label="Doctor" {...a11yProps(1)} sx={boxSX} />
+            {/* <Tab label="Admin" {...a11yProps(2)} sx={boxSX} /> */}
+          </Tabs>
         </Box>
+        {/* for patient */}
+        <TabPanel value={value} index={0}>
+          <PatientReg></PatientReg>
+        </TabPanel>
+        {/* for doctor */}
+        <TabPanel value={value} index={1}>
+          <DoctorReg></DoctorReg>
+        </TabPanel>
+        {/* <TabPanel value={value} index={2}> */}
+        {/* <AdminReg></AdminReg> */}
+        {/* </TabPanel> */}
       </Container>
-
     </Card>
   );
 }

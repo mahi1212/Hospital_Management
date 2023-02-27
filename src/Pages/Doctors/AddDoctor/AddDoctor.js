@@ -55,35 +55,14 @@ const AddDoctor = () => {
       typeof value === "string" ? value.split(",") : value
     );
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const fee = formData.get("fee");
-    const age = formData.get("age");
-    const specialist = formData.get("specialist");
-    const address = formData.get("address");
-    const salary = formData.get("salary");
-    const time = formData.get("time");
-    const gender = formData.get("gender");
-    const degrees = formData.get("degrees");
+    // const name = formData.get("name");
     formData.append("image", image); // <-- append the image to the formData
-    const data = {
-      name,
-      phone,
-      email,
-      fee,
-      age,
-      specialist,
-      address,
-      degrees,
-      salary,
-      time,
-      gender,
-      date,
-    };
+    formData.append("created_at", date);
+    formData.append("approved", true);
     fetch("http://localhost:5000/doctors", {
       method: "POST",
       body: formData, // <-- send the formData in the body of the request
@@ -91,12 +70,10 @@ const AddDoctor = () => {
       .then((res) => res.json())
       .then((success) => {
         if (success) {
-          alert("Doctor Added Successfully");
+          alert("Doctor added successfully");
         }
       });
   };
-
-
 
   return (
     <Box

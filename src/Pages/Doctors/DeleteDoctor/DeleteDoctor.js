@@ -12,7 +12,7 @@ import { Typography } from "@mui/material";
 export default function DeleteDoctor() {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("http://localhost:5000/approvedDoctors")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

@@ -20,6 +20,7 @@ import FindDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
 import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
 import Patients from "./Pages/Patients/Patients/Patients";
 import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
+import ApproveDoctor from "./Pages/Doctors/ApproveDoctor/ApproveDoctor";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route index element={<Home></Home>} />
             <Route path="doctors" element={<PatientViewDoctor />} />
             <Route path="addDoctor" element={<AddDoctor />} />
+            <Route path="approveDoctor" element={<ApproveDoctor />} />
             <Route path="deleteDoctor" element={<DeleteDoctor />} />
             <Route path="updateDoctor" element={<FindDoctor />} />
             <Route path="patients" element={<Patients />} />
