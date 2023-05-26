@@ -1,0 +1,15 @@
+.no-req{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    width: 100px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.table-parent{
+    overflow-x: auto;
+}

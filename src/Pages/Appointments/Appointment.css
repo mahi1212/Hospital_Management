@@ -1,0 +1,36 @@
+.appointment{
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.datetime {
+    padding: 10px 5px;
+    font-size: 20px;
+    width: 260px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.appointment input,select{
+    border: 1px solid #ccc;
+    padding: 13px 5px;
+    font-size: 20px;
+    margin-top: 15px;
+    width: 260px;
+    margin-left: 4px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.textA{
+    border: 1px solid #ccc;
+    padding: 13px 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    height: 40px;
+    margin-left: 4px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* align-items: center;
+    justify-content: center;
+    display: flex; */
+}

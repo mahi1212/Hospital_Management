@@ -1,0 +1,18 @@
+
+.paybtn{
+    background-color: rgba(47, 35, 77, 0.822);
+    color: rgb(232, 238, 244);
+    border-radius: 4px;
+}
+.paybtn:hover{
+    color: black;
+}
+.staffTable{
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px 5px #6c27a421;
+    width: 50%;
+    margin: auto;
+    align-items: center;
+
+text-align: center;}
