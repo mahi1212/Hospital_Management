@@ -41,6 +41,7 @@ export default function Patients() {
 
   return (
     <TableContainer component={Paper}>
+      {/* loader */}
       {
         loading ? <Typography variant="h6" sx={{ py: 6 }} >
           Loading...
