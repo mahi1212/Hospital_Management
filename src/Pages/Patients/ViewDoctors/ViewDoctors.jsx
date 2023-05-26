@@ -45,7 +45,7 @@ const ViewDoctors = () => {
             gap: "1rem",
           }}
         >
-          {/* Render skeleton loading cards */}
+          {/* skeleton here*/}
           {Array.from({ length: 2 }).map((index) => (
             <Card elevation={3} key={index} style={{maxWidth: '250px', width: '100%'}}>
               <CardActionArea sx={{display: 'flex'}}>
