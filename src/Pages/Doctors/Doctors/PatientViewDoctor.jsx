@@ -107,7 +107,7 @@ export default function PatientViewDoctor() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/approvedDoctors")
+    fetch("https://hospital-management-server-site-d2m8.vercel.app/approvedDoctors")
       .then((res) => res.json())
       .then((data) => {
         setData(data)

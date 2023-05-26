@@ -11,7 +11,7 @@ const PatientDetails = () => {
   const [details, setDetails] = useState({})
   console.log(details)
   useEffect(() => {
-    fetch(`http://localhost:5000/patients/${id}`)
+    fetch(`https://hospital-management-server-site-d2m8.vercel.app/patients/${id}`)
       .then(res => res.json())
       .then(data => setDetails(data))
   }, [id])

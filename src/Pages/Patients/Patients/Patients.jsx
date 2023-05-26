@@ -16,7 +16,7 @@ export default function Patients() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/appointments")
+    fetch("https://hospital-management-server-site-d2m8.vercel.app/appointments")
       .then((res) => res.json())
       .then((patientsData) => {
         setpatientsData(patientsData)
@@ -24,7 +24,7 @@ export default function Patients() {
       });
   }, []);
   const deletePatient = (id) => {
-    fetch(`http://localhost:5000/patients/${id}`, {
+    fetch(`https://hospital-management-server-site-d2m8.vercel.app/patients/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -34,7 +34,7 @@ export default function Patients() {
         }
       });
     // update data after delete
-    fetch("http://localhost:5000/appointments")
+    fetch("https://hospital-management-server-site-d2m8.vercel.app/appointments")
       .then((res) => res.json())
       .then((patientsData) => setpatientsData(patientsData));
   };

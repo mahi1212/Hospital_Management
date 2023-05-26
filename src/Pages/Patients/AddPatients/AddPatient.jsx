@@ -65,7 +65,7 @@ const AddPatient = () => {
   const doctorEmail = url.substring(url.lastIndexOf("/") + 1);
   const [doctorInfo, setDoctorInfo] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/doctors/${doctorEmail}`)
+    fetch(`https://hospital-management-server-site-d2m8.vercel.app/doctors/${doctorEmail}`)
       .then((res) => res.json())
       .then((data) => setDoctorInfo(data[0]));
   }, []);
@@ -128,7 +128,7 @@ const AddPatient = () => {
     //   email,
     //   value
     // );
-    fetch("http://localhost:5000/appoinments", {
+    fetch("https://hospital-management-server-site-d2m8.vercel.app/appoinments", {
       method: "POST",
       headers: {
         "content-type": "application/json",

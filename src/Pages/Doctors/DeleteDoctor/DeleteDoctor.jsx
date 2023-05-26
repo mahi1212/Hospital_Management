@@ -14,7 +14,7 @@ export default function DeleteDoctor() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/approvedDoctors")
+    fetch("https://hospital-management-server-site-d2m8.vercel.app/approvedDoctors")
       .then((res) => res.json())
       .then((data) => {
         setData(data)
@@ -22,7 +22,7 @@ export default function DeleteDoctor() {
       });
   }, [data]);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/doctors/${id}`, {
+    fetch(`https://hospital-management-server-site-d2m8.vercel.app/doctors/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

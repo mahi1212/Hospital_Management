@@ -10,7 +10,7 @@ const Appointment = () => {
   const {email} = useParams();
   const [doctorInfo, setDoctorInfo] = useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5000/doctors/${email}`)
+    fetch(`https://hospital-management-server-site-d2m8.vercel.app/doctors/${email}`)
     .then(res => res.json())
     .then(data => setDoctorInfo(data[0]))
   }, [])
@@ -29,7 +29,7 @@ const Appointment = () => {
     //   // patientSymptoms: formData.get('symptoms'),
     // }
     // console.log(data);
-    // fetch('http://localhost:5000/appointments', {
+    // fetch('https://hospital-management-server-site-d2m8.vercel.app/appointments', {
     //   method: 'POST',
     //   headers: {
     //     'content-type': 'application/json'
