@@ -14,12 +14,12 @@ import approvalIcon from '../../../utils/no-approval.png'
 export default function ApproveDoctor() {
     const [data, setData] = React.useState([]);
     React.useEffect(() => {
-        fetch("https://hospital-management-server-site-d2m8.vercel.app/pendingDoctors")
+        fetch("https://hospital-management-server-site.vercel.app/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [data]);
     const handleDelete = (id) => {
-        fetch(`https://hospital-management-server-site-d2m8.vercel.app/doctors/${id}`, {
+        fetch(`https://hospital-management-server-site.vercel.app/doctors/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -29,12 +29,12 @@ export default function ApproveDoctor() {
                 }
             });
         // update the data
-        fetch("https://hospital-management-server-site-d2m8.vercel.app/pendingDoctors")
+        fetch("https://hospital-management-server-site.vercel.app/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     };
     const handleApprove = (id) => {
-        fetch(`https://hospital-management-server-site-d2m8.vercel.app/approve/${id}`, {
+        fetch(`https://hospital-management-server-site.vercel.app/approve/${id}`, {
             method: "PUT",
         })
             .then((res) => res.json())
@@ -44,7 +44,7 @@ export default function ApproveDoctor() {
                 }
             });
         // update the data
-        fetch("https://hospital-management-server-site-d2m8.vercel.app/pendingDoctors")
+        fetch("https://hospital-management-server-site.vercel.app/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     };

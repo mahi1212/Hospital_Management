@@ -14,7 +14,7 @@ const FindDoctor = () => {
   console.log(doctors);
 
   useEffect(() => {
-    fetch("https://hospital-management-server-site-d2m8.vercel.app/approvedDoctors")
+    fetch("https://hospital-management-server-site.vercel.app/approvedDoctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
@@ -43,7 +43,7 @@ const FindDoctor = () => {
   };
 
   // const handleUpdate = (id) => {
-  //   fetch(`https://hospital-management-server-site-d2m8.vercel.app/doctors/${id}`, {
+  //   fetch(`https://hospital-management-server-site.vercel.app/doctors/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "Content-Type": "application/json",

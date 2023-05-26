@@ -21,7 +21,7 @@ To run this web application locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/hospital-management-system.git`
 2. Clone the server repo: `https://github.com/mahi1212/Hospital-Management-Server-Site.git`
-3. Live API link: `https://hospital-management-server-site-d2m8.vercel.app/`
+3. Live API link: `https://hospital-management-server-site.vercel.app/`
 4. Install the dependencies for both the server and client:
    - Server: `cd server && npm install`
    - Client: `cd client && npm install`

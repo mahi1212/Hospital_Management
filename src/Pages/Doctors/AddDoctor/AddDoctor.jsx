@@ -63,7 +63,8 @@ const AddDoctor = () => {
     formData.append("image", image); // <-- append the image to the formData
     formData.append("created_at", date);
     formData.append("approved", true);
-    fetch("https://hospital-management-server-site-d2m8.vercel.app/doctors", {
+    // https://hospital-management-server-site.vercel.app/
+    fetch("https://hospital-management-server-site.vercel.app/doctors", {
       method: "POST",
       body: formData, // <-- send the formData in the body of the request
     })

@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 export default function TodaysDoctors() {
   const [doctors, setDoctors] = React.useState([]);
   React.useEffect(() => {
-    fetch("https://hospital-management-server-site-d2m8.vercel.app/doctors")
+    fetch("https://hospital-management-server-site.vercel.app/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

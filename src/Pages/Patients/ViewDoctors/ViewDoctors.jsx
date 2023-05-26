@@ -14,7 +14,7 @@ const ViewDoctors = () => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("https://hospital-management-server-site-d2m8.vercel.app/approvedDoctors")
+    fetch("https://hospital-management-server-site.vercel.app/approvedDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);
