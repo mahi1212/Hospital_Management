@@ -27,6 +27,7 @@ const ViewDoctors = () => {
       <h3 style={{ marginTop: "1rem", textAlign: "left", color: 'orange' }}>
         <Chip label="FIRST SELECT A DOCTOR FOR PATIENT" color="success" />
       </h3>
+      {/* add loader */}
       {loading ? (
         <Grid
           container
