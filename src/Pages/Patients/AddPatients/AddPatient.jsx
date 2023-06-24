@@ -14,28 +14,6 @@ import { useTheme } from "@mui/material/styles";
 import Calender from "../../Shared/Calender/Calender";
 import { useState } from "react";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-// const MenuProps = {
-//   PaperProps: {
-//     style: {
-//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-//       width: 250,
-//     },
-//   },
-// };
-
-// const names = ["MBBS", "BCS", "FCPS", "PHD", "BMBS", "MBChC", "MBBCh"];
-// const packages = ["24 HOURS", "MORE THAN 2 DAYS", "10 DAYS OR MORE"];
-
-// function getStyles(name, packageName, theme) {
-//   return {
-//     fontWeight:
-//       packageName.indexOf(name) === -1
-//         ? theme.typography.fontWeightRegular
-//         : theme.typography.fontWeightMedium,
-//   };
-// }
 
 const AddPatient = () => {
   // const theme = useTheme();

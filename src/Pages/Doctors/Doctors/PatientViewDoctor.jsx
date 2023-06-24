@@ -104,74 +104,89 @@ import { Typography } from "@mui/material";
 
 export default function PatientViewDoctor() {
   const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
   React.useEffect(() => {
     fetch("http://localhost:5000/approvedDoctors")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      });
   }, []);
 
   return (
     <TableContainer component={Paper}>
       {
-        <Typography variant="h6" sx={{ my: 3 }}>
-          Total available doctors: {data ? data.length : "Loading Data"}
-        </Typography>
+        loading ? <Typography variant="h6" sx={{ my: 3 }}>
+          Searching for data...
+        </Typography> : (
+          <>
+            {
+              <Typography Typography variant="h6" sx={{ my: 3 }}>
+                Total available doctors: {data.length}
+              </Typography>
+            }
+            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center" style={{ padding: "20px 0" }}>
+                    Name
+                  </TableCell>
+                  <TableCell align="center">Specialist</TableCell>
+                  <TableCell align="center">Available</TableCell>
+                  <TableCell align="center">Fee</TableCell>
+                  <TableCell align="center">Phone</TableCell>
+                  <TableCell align="center">Gender</TableCell>
+                  <TableCell align="center">Make Appoinment</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {data.map((doctorData) => (
+                  <TableRow
+                    key={doctorData.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      style={{ borderRight: "1px solid #ccc" }}
+                    >
+                      {doctorData.name}
+                    </TableCell>
+                    <TableCell align="center" style={{ borderRight: "1px solid #ccc" }}>{doctorData.specialist}</TableCell>
+                    <TableCell align="center">{doctorData.time}</TableCell>
+                    <TableCell align="center">{doctorData.fee}</TableCell>
+                    <TableCell align="center">{doctorData.phone}</TableCell>
+                    <TableCell align="center">{doctorData.gender}</TableCell>
+                    <TableCell align="center">
+                      <NavLink to={`/addPatient/${doctorData.email}`}>
+                        <input
+                          style={{
+                            color: "#fff",
+                            background: "#000",
+                            padding: "5px 10px",
+                            cursor: "pointer",
+                            border: "none",
+                            borderRadius: "5px",
+                            backgroundColor: "#224B0C",
+                          }}
+                          id="submit"
+                          type="submit"
+                          name="appointment"
+                          value="Appointment"
+                        />
+                      </NavLink>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+
+          </>)
       }
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center" style={{ padding: "20px 0" }}>
-              Name
-            </TableCell>
-            <TableCell align="center">Specialist</TableCell>
-            <TableCell align="center">Available</TableCell>
-            <TableCell align="center">Fee</TableCell>
-            <TableCell align="center">Phone</TableCell>
-            <TableCell align="center">Gender</TableCell>
-            <TableCell align="center">Make Appoinment</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((doctorData) => (
-            <TableRow
-              key={doctorData.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell
-                component="th"
-                scope="row"
-                style={{ borderRight: "1px solid #ccc" }}
-              >
-                {doctorData.name}
-              </TableCell>
-              <TableCell align="center" style={{ borderRight: "1px solid #ccc" }}>{doctorData.specialist}</TableCell>
-              <TableCell align="center">{doctorData.time}</TableCell>
-              <TableCell align="center">{doctorData.fee}</TableCell>
-              <TableCell align="center">{doctorData.phone}</TableCell>
-              <TableCell align="center">{doctorData.gender}</TableCell>
-              <TableCell align="center">
-                <NavLink to={`/addPatient/${doctorData.email}`}>
-                  <input
-                    style={{
-                      color: "#fff",
-                      background: "#000",
-                      padding: "5px 10px",
-                      cursor: "pointer",
-                      border: "none",
-                      borderRadius: "5px",
-                      backgroundColor: "#224B0C",
-                    }}
-                    id="submit"
-                    type="submit"
-                    name="appointment"
-                    value="Appointment"
-                  />
-                </NavLink>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+
+
+    </TableContainer >
   );
 }
