@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const Feedback = () => {
     const form = useRef();
     function sendEmail(e) {
-        emailjs.sendForm('service_jjhtxzt', 'template_h81rxii', form.current, 'user_0KA7wjoGRk8rOP5DKlqn4')
+        emailjs.sendForm('here service id', 'here template id', form.current, 'here user id')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
